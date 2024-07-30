@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const libraries = ['places'];
 
-const HomepageLayout = () => {
+const Track = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [orderId, setOrderId] = useState('');
   const [showMap, setShowMap] = useState(false);
@@ -73,4 +73,4 @@ const HomepageLayout = () => {
   );
 };
 
-export default HomepageLayout;
+export default Track;
