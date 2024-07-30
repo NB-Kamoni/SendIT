@@ -77,7 +77,7 @@ const HomepageHeading = ({ mobile }) => (
             fontWeight: 'bold',
             marginBottom: 0,
             marginTop: mobile ? '1.5em' : '3em',
-            color: '#012169',
+            color: 'white',
           }}
         />
         <Header

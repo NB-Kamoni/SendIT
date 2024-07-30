@@ -23,7 +23,7 @@ const Track = () => {
 
   // Google Maps component
   const MapComponent = () => (
-    <LoadScript googleMapsApiKey="AIzaSyCtWCfukPAF5k6GdPE_YZg9xO3ECQ8tEOg" libraries={libraries}>
+    <LoadScript googleMapsApiKey="" libraries={libraries}>
       <GoogleMap
         mapContainerStyle={{ height: '400px', width: '100%' }}
         center={mapOptions.center}
