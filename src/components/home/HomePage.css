@@ -1,0 +1,61 @@
+/* HomePage.css */
+
+/* HomepageHeading styles */
+.homepage-heading h1 {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.homepage-heading h2 {
+    font-weight: normal;
+}
+
+.homepage-heading .header-mobile {
+    font-size: 2em;
+}
+
+.homepage-heading .header-desktop {
+    font-size: 4em;
+}
+
+.homepage-heading .subheader-mobile {
+    font-size: 1.5em;
+}
+
+.homepage-heading .subheader-desktop {
+    font-size: 1.7em;
+}
+
+/* DesktopContainer styles */
+.desktop-container .segment {
+    min-height: 700px;
+    padding: 1em 0em;
+}
+
+.desktop-container .button-signup {
+    margin-left: 0.5em;
+}
+
+/* MobileContainer styles */
+.mobile-container .segment {
+    min-height: 350px;
+    padding: 1em 0em;
+}
+
+.mobile-container .button-signup {
+    margin-left: 0.5em;
+}
+
+/* HomepageLayout styles */
+.homepage-layout .header-large {
+    font-size: 2em;
+}
+
+.homepage-layout .text-large {
+    font-size: 1.33em;
+}
+
+.homepage-layout .divider {
+    margin: 3em 0em;
+    text-transform: uppercase;
+}

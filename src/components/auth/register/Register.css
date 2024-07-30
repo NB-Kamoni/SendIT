@@ -1,0 +1,86 @@
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #09697D;
+    
+}
+
+.register-card {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    width: 400px;
+    text-align: center;
+}
+
+.register-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(9, 105, 125); 
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-field {
+    text-align: left;
+}
+
+.register-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.register-input:focus {
+    border-color: rgb(9, 105, 125); 
+}
+
+.register-button {
+    padding: 10px;
+    color: white;
+    background-color: rgb(9, 105, 125); 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: rgb(9, 105, 125); 
+}
+
+.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #ff3333;
+    font-weight: bold;
+}
+
+.login-link {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.login-link-text {
+    color: rgb(9, 105, 125); 
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-link-text:hover {
+    text-decoration: underline;
+    color: rgb(9, 105, 125); 
+}
