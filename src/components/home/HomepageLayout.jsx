@@ -34,7 +34,7 @@ const { MediaContextProvider, Media } = createMedia({
 })
 
 // Primary and secondary colors for the theme
-const primaryColor = 'rgb(253, 197, 0)' // Orange
+const primaryColor = 'rgb(253, 197, 0)' // golden yellow
 const secondaryColor = '#012169' // Dark Blue
 
 // CSS-in-JS for button styles
@@ -47,7 +47,7 @@ const buttonStyles = {
 const buttonStyles_blue = {
   backgroundColor: secondaryColor,
   color: 'white',
-  marginTop: '20px'
+ 
 
 }
 
@@ -125,45 +125,54 @@ class DesktopContainer extends Component {
 
     return (
       <Media greaterThan='mobile'>
-        <InView onChange={this.toggleFixedMenu}>
-          <Segment
-            inverted
-            textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em', backgroundColor: '#012169' }}
-            vertical
+      <InView onChange={this.toggleFixedMenu}>
+        <Segment
+          inverted
+          textAlign='center'
+          style={{ minHeight: 700, padding: '1em 0em', backgroundColor: '#012169'  }}
+          vertical
+        >
+          <Menu 
+            fixed={fixed ? 'top' : null}
+            inverted={!fixed}
+            pointing={!fixed}
+            secondary={!fixed}
+            size='large'
+            style={{ padding: '1em 0em', backgroundColor: fixed ? 'rgb(253, 197, 0, 0.9)' : '#012169'   }}
           >
-            <Menu
-              fixed={fixed ? 'top' : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
-              size='large'
-            >
-              <Container
-              
-              >
-                <Menu.Item as='a' active>
-                  Home
-                </Menu.Item>
-                <Menu.Item as='a'>Services</Menu.Item>
-                <Menu.Item as='a'>About</Menu.Item>
-                <Menu.Item as='a'>Contact</Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed} style={fixed ? {} : buttonStyles_blue}>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em', ...buttonStyles_blue }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
-              </Container>
-            </Menu>
-            <HomepageHeading />
-          </Segment>
-        </InView>
-
-        {children}
-      </Media>
+            <Container>
+              <Menu.Item as='a' active>
+                Home
+              </Menu.Item>
+              <Menu.Item as='a'>Services</Menu.Item>
+              <Menu.Item as='a'>About</Menu.Item>
+              <Menu.Item as='a'>Contact</Menu.Item>
+              <Menu.Item position='right'>
+                <Button 
+                  as='a' 
+                  inverted={!fixed} 
+                  primary={fixed} 
+                  style={{ marginLeft: '0.5em', backgroundColor: fixed ? '#012169' : 'transparent', color: fixed ? 'white' : 'white' }}
+                >
+                  Log in
+                </Button>
+                <Button 
+                  as='a' 
+                  inverted={!fixed} 
+                  primary={fixed} 
+                  style={{ marginLeft: '0.5em', backgroundColor: fixed ? '#012169' : 'transparent', color: fixed ? 'white' : 'white' }}
+                >
+                  Sign Up
+                </Button>
+              </Menu.Item>
+            </Container>
+          </Menu>
+          <HomepageHeading />
+        </Segment>
+      </InView>
+      {children}
+    </Media>
+    
     )
   }
 }
@@ -222,6 +231,7 @@ class MobileContainer extends Component {
                     <Icon name='sidebar' />
                   </Menu.Item>
                   <Menu.Item position='right'>
+                    {/* when the screen is smaller */}
                     <Button as='a' inverted>
                       Log in
                     </Button>
