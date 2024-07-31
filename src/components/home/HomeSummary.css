@@ -1,0 +1,61 @@
+/* HomeSummary.css */
+.summary-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(253, 197, 0);
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+  
+  .summary-item {
+    text-align: center;
+    color: #012169;
+    position: relative;
+    flex: 1;
+    min-width: 200px; /* Ensure items don't get too small on small screens */
+    margin: 10px 0;
+  }
+  
+  .summary-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: 1px;
+    background-color: #012169;
+  }
+  
+  .summary-title {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .summary-value {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .summary-container {
+      flex-direction: column;
+      padding: 20px 10px;
+    }
+  
+    .summary-item:not(:last-child)::after {
+      display: none; /* Hide the separator on smaller screens */
+    }
+  
+    .summary-item {
+      margin: 10px 0;
+    }
+  }
+  

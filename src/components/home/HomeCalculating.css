@@ -1,0 +1,28 @@
+.cost-card {
+  background-color: rgb(253, 197, 0) !important;
+  color: #012169 !important;
+  width: 70% !important;
+  height: 500px;
+
+}
+
+
+.cost-card .ui.input input {
+  border-color: #012169 !important;
+  color: #012169 !important;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.cost-card .ui.primary.button {
+  background-color: #012169 !important;
+  color: white !important;
+  margin-bottom: 50px;
+}
+
+.cost-popup {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #012169;
+}

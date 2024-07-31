@@ -18,6 +18,11 @@ import {
   Segment,
   Sidebar,
 } from 'semantic-ui-react'
+import HomeSummary from './HomeSummary'
+import HomeCalculating from './HomeCalculating'
+import HomeTracking from './HomeTracking'
+
+
 
 // Setting up responsive breakpoints
 const { MediaContextProvider, Media } = createMedia({
@@ -29,18 +34,21 @@ const { MediaContextProvider, Media } = createMedia({
 })
 
 // Primary and secondary colors for the theme
-const primaryColor = '#FF6700' // Orange
+const primaryColor = 'rgb(253, 197, 0)' // Orange
 const secondaryColor = '#012169' // Dark Blue
 
 // CSS-in-JS for button styles
 const buttonStyles = {
   backgroundColor: primaryColor,
-  color: 'white',
+  color: '#012169',
 }
+
 
 const buttonStyles_blue = {
   backgroundColor: secondaryColor,
   color: 'white',
+  marginTop: '20px'
+
 }
 
 // CSS-in-JS for text styles
@@ -60,7 +68,7 @@ const HomepageHeading = ({ mobile }) => (
       left: 0,
       width: '100%',
       height: '100%',
-      backgroundColor: 'rgba(255, 103, 0, 0.8)', // Color overlay with transparency
+      backgroundColor: 'rgba(253, 197, 0, 0.8)', 
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -77,12 +85,12 @@ const HomepageHeading = ({ mobile }) => (
             fontWeight: 'bold',
             marginBottom: 0,
             marginTop: mobile ? '1.5em' : '3em',
-            color: 'white',
+            color: '#012169',
           }}
         />
         <Header
           as='h2'
-          content='Send and receive parcels locally and internationally with ease.'
+          content='Connecting the World, One Parcel at a Time.'
           inverted
           style={{
             fontSize: mobile ? '1.5em' : '1.7em',
@@ -141,10 +149,10 @@ class DesktopContainer extends Component {
                 <Menu.Item as='a'>About</Menu.Item>
                 <Menu.Item as='a'>Contact</Menu.Item>
                 <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed} style={fixed ? {} : buttonStyles}>
+                  <Button as='a' inverted={!fixed} style={fixed ? {} : buttonStyles_blue}>
                     Log in
                   </Button>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em', ...buttonStyles }}>
+                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em', ...buttonStyles_blue }}>
                     Sign Up
                   </Button>
                 </Menu.Item>
@@ -258,25 +266,25 @@ const HomepageLayout = () => (
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as='h3' style={{ fontSize: '2em', ...textStyles }}>
-              Send Parcels Locally and Internationally
+            Send and Receive Parcels Anywhere in the World
             </Header>
             <p style={{ fontSize: '1.33em' }}>
               SendIT allows you to send and receive parcels to and from any location. Our reliable and efficient service ensures your parcels reach their destination safely and on time.
             </p>
             <Header as='h3' style={{ fontSize: '2em', ...textStyles }}>
-              Track Your Parcels in Real Time
+              
             </Header>
             <p style={{ fontSize: '1.33em' }}>
               With real-time tracking, you can monitor the status and location of your parcels every step of the way.
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src='/src/assets/van2.jpg' />
+            <Image bordered rounded size='large' src='/src/assets/gtruck1.png' />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
-            <Button size='huge' style={buttonStyles}>Learn More</Button>
+            <Button size='huge' style={buttonStyles}>SendIT</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -287,13 +295,7 @@ const HomepageLayout = () => (
         <Grid.Row textAlign='center'>
           <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
             <Header as='h3' style={{ fontSize: '2em', ...textStyles }}>
-              "Reliable and Efficient Service"
-            </Header>
-            <p style={{ fontSize: '1.33em', color: 'white' }}>Our customers love our timely and dependable parcel delivery service.</p>
-          </Grid.Column>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em', ...textStyles }}>
-              "Best Parcel Delivery Experience"
+              Track a Parcel
             </Header>
             <div style={{ 
   fontSize: '1.33em', 
@@ -303,17 +305,23 @@ const HomepageLayout = () => (
   flexDirection: 'column', 
   alignItems: 'center' 
 }}>
-  <img 
-    src='/src/assets/ceo.png' 
-    alt='CEO' 
-    style={{
-      borderRadius: '50%',
-      width: '150px', 
-      height: '150px', 
-      objectFit: 'cover'
-    }} 
-  />
-  <span>CEO, Mkubwa Sana</span>
+   <HomeTracking />
+</div>
+          
+          </Grid.Column>
+          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
+            <Header as='h3' style={{ fontSize: '2em', ...textStyles }}>
+              Cost Estimator
+            </Header>
+            <div style={{ 
+  fontSize: '1.33em', 
+  color: 'white', 
+  position: 'relative', 
+  display: 'flex', 
+  flexDirection: 'column', 
+  alignItems: 'center' 
+}}>
+   <HomeCalculating />
 </div>
             
           </Grid.Column>
@@ -326,11 +334,11 @@ const HomepageLayout = () => (
         <Header as='h3' style={{ fontSize: '2em', ...textStyles }}>
           Easy to Use, Flexible Features
         </Header>
-        <p style={{ fontSize: '1.33em' }}>
+        <p style={{ fontSize: '1.33em', color: 'white' }}>
           Our platform is designed with the user in mind. Whether you need to create an account, manage parcel delivery orders, or track your shipments, SendIT provides an intuitive and seamless experience.
         </p>
         <Button as='a' size='large' style={buttonStyles}>
-          Explore Features
+          Explore
         </Button>
 
         <Divider
@@ -339,55 +347,62 @@ const HomepageLayout = () => (
           horizontal
           style={{ margin: '3em 0em', textTransform: 'uppercase' }}
         >
-          <a href='#'>Case Studies</a>
+          <a href='#'>Sendit Community</a>
         </Divider>
 
         <Header as='h3' style={{ fontSize: '2em', ...textStyles }}>
           Join Thousands of Happy Customers
         </Header>
-        <p style={{ fontSize: '1.33em' }}>
+        <p style={{ fontSize: '1.33em', ...textStyles  }}>
           Join the SendIT community and experience the best in parcel delivery services. See how we have helped others and how we can help you too.
         </p>
         <Button as='a' size='large' style={buttonStyles}>
           Join Now
         </Button>
+        
       </Container>
     </Segment>
+    <HomeSummary />
 
-    <Segment inverted vertical style={{ padding: '5em 0em', backgroundColor: 'rgba(255, 103, 0)' }}>
-      <Container>
-        <Grid divided inverted stackable>
-          <Grid.Row>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='About' />
-              <List link inverted>
-                <List.Item as='a'>Sitemap</List.Item>
-                <List.Item as='a'>Contact Us</List.Item>
-                <List.Item as='a'>Terms and Conditions</List.Item>
-                <List.Item as='a'>Privacy Policy</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='Services' />
-              <List link inverted>
-                <List.Item as='a'>Parcel Delivery</List.Item>
-                <List.Item as='a'>Real-Time Tracking</List.Item>
-                <List.Item as='a'>International Shipping</List.Item>
-                <List.Item as='a'>Customer Support</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column width={7}>
-              <Header as='h4' inverted>
-                Footer Header
-              </Header>
-              <p>
-                Join the best parcel delivery service and enjoy reliable, efficient, and secure deliveries.
-              </p>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
-    </Segment>
+
+{/* footer */}
+<Segment inverted vertical style={{ padding: '5em 0em', backgroundColor: 'rgba(253, 197, 0)', color: '#012169'}}>
+  <Container>
+    <Grid divided inverted stackable>
+      <Grid.Row>
+        <Grid.Column width={3}>
+          <Header inverted as='h4' content='About' style={{ color: '#012169' }} />
+          <List link inverted >
+            <List.Item as='a' style={{ color: '#012169' }}>Sitemap</List.Item>
+            <List.Item as='a' style={{ color: '#012169' }}>Contact Us</List.Item>
+            <List.Item as='a' style={{ color: '#012169' }}>Terms and Conditions</List.Item>
+            <List.Item as='a' style={{ color: '#012169' }}>Privacy Policy</List.Item>
+          </List>
+        </Grid.Column>
+        <Grid.Column width={3}>
+          <Header inverted as='h4' content='Services' style={{ color: '#012169' }} />
+          <List link inverted>
+            <List.Item as='a' style={{ color: '#012169' }}>Parcel Delivery</List.Item>
+            <List.Item as='a' style={{ color: '#012169' }}>Real-Time Tracking</List.Item>
+            <List.Item as='a' style={{ color: '#012169' }}>International Shipping</List.Item>
+            <List.Item as='a' style={{ color: '#012169' }}>Customer Support</List.Item>
+          </List>
+        </Grid.Column>
+        <Grid.Column width={7}>
+          <Header as='h4' inverted style={{ color: '#012169' }}>
+            SendIT Support
+          </Header>
+          <p style={{ color: '#012169' }}>+254 725 142 55</p>
+          <p style={{ color: '#012169' }}>support@sendit.m</p>
+          
+              
+          
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+  </Container>
+</Segment>
+
   </ResponsiveContainer>
 )
 
