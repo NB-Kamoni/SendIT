@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import './TypingEffect.css'; // Import the CSS file
 
 const TypingEffect = ({ texts = [], speed = 100, pause = 1000 }) => {
   const [displayedText, setDisplayedText] = useState(''); // Track displayed text
@@ -32,7 +33,7 @@ const TypingEffect = ({ texts = [], speed = 100, pause = 1000 }) => {
     };
   }, [currentIndex, texts, currentSentence, typing, pause, speed]); // Correct dependencies
 
-  return <span style={{}}><h1>{displayedText}</h1></span>; // Display the typing effect
+  return <span className="typing-effect"><h1>{displayedText}</h1></span>; // Apply the CSS class
 };
 
 TypingEffect.propTypes = {
@@ -40,16 +41,5 @@ TypingEffect.propTypes = {
   speed: PropTypes.number, // Ensure speed is a number
   pause: PropTypes.number, // Ensure pause is a number for delay after typing
 };
-
-// Example usage
-const App = () => (
-  <div>
-    <TypingEffect
-      texts={["kkkk", "nnn", "kkk"]}
-      speed={100} // Speed in milliseconds
-      pause={1000} // Pause for 1 second after typing
-    />
-  </div>
-);
 
 export default TypingEffect;

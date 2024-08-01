@@ -1,0 +1,15 @@
+.typing-effect h1 {
+  font-size: 1.5em; 
+  font-family: 'Arial, sans-serif';
+  font-weight: bold;
+  color: rgb(1, 33, 105);
+  margin-left: 25px; 
+  margin-top: 35px;
+  padding: 0; /* Remove default padding */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-align: center;
+ 
+  
+}
+

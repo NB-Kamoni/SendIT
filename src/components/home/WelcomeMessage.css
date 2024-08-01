@@ -1,0 +1,71 @@
+.welcome-card {
+    border-radius: 10px;
+   
+    background-color: rgb(253, 197, 0); 
+    padding: 0px;
+    margin: 0px; 
+    text-align: center;
+    height: 25vh; /* Adjusted for profile circle and buttons */
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  
+  .welcome-card:hover {
+    
+    box-shadow:  rgb(253, 197, 0); /* Increase shadow to make it pop */
+  }
+  
+  .profile-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color:  rgb(1, 33, 105); /* Light blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-width: 5px;
+    border-color: rgb(1, 33, 105);
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-initials {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgb(9, 105, 125, 0.5); ; /* Medium blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: white;
+  }
+  
+  .welcome-greeting {
+    font-size: 1.5em; 
+    font-weight: bold;
+    color:  rgb(1, 33, 105);
+    font-family: 'Arial', sans-serif; 
+  }
+  
+  
+  
+  
+  .welcome-message {
+    font-size: 1.1em; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color:  rgb(1, 33, 105);
+    font-family: 'Arial', sans-serif; 
+  }

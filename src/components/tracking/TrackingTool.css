@@ -1,0 +1,131 @@
+/* Container for the search bar and button */
+.tracking-tool {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 100%; /* Full width container */
+  padding: 10px; /* Padding around the container */
+  box-sizing: border-box; /* Include padding in width calculation */
+  margin-bottom: 25px;
+  
+  
+}
+
+/* Style for the input field */
+.tracking-tool input {
+  flex: 1; /* Allow input to take up available space */
+  padding: 10px 60px 10px 40px; /* Add space for the button and the microphone icon */
+  font-size: 16px;
+  border: 2px solid #ccc; /* Light gray border */
+  border-radius: 25px; /* Rounded corners */
+  background-color: rgb(1, 33, 105); /* Light background */
+  color: rgb(253, 197, 0); /* Dark text */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  height: 50px;
+}
+
+/* Placeholder text color */
+.tracking-tool input::placeholder {
+  color: #888; /* Light gray color for placeholder text */
+}
+
+/* Style for input field on focus */
+.tracking-tool input:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Style for the search button */
+.tracking-tool button {
+ 
+  padding: 5px 10px;
+  font-size: 18px;
+  color: rgb(253, 197, 0); /* White text color */
+  background-color: rgb(1, 33, 105); /* Blue background color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  z-index: 1; /* Ensure the button is above the input field */
+  margin-left: -15%; /* Space between input and button */
+}
+
+/* Style for button on hover */
+.tracking-tool button:hover {
+  background-color: rgb(253, 197, 0); /* Darker blue on hover */
+  color: rgb(1, 33, 105);
+}
+
+/* Style for button on focus */
+.tracking-tool button:focus {
+  outline: none; /* Remove default outline */
+}
+
+/* Style for button on active (clicked) state */
+.tracking-tool button:active {
+  background-color: rgb(1, 33, 105); /* Even darker blue on click */
+}
+
+/* Style for voice button */
+.voice-button {
+  position: absolute;
+  right: 15%; /* Distance from the right edge */
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  font-size: 20px;
+  color: rgb(1, 33, 105); /* Blue icon color */
+  background: none; /* No background */
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: color 0.3s ease; /* Smooth transition for icon color */
+}
+
+/* Style for voice button when recording */
+.voice-button.recording {
+  color: #ff0000; /* Red icon color when recording */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  /* Stack elements vertically on smaller screens */
+  .tracking-tool {
+    flex-direction: column;
+    align-items: stretch; /* Full width elements */
+  }
+
+  .tracking-tool input {
+    padding-left: 40px; /* Adjust padding to fit smaller screens */
+    padding-right: 40px; /* Space for the voice button */
+  }
+
+  .tracking-tool button {
+    width: 100%; /* Full width button */
+    margin-top: 10px; /* Space between input and button */
+  }
+
+  .tracking-tool .voice-button {
+    position: static; /* Remove absolute positioning for stacking */
+    margin-top: 10px; /* Space between input and voice button */
+  }
+}
+
+@media (max-width: 400px) {
+  /* Further adjustments for very small screens */
+  .tracking-tool input {
+    padding-left: 30px; /* Reduce padding */
+    padding-right: 30px; /* Space for the voice button */
+    font-size: 14px; /* Smaller text */
+  }
+
+  .tracking-tool button {
+    padding: 8px 15px; /* Smaller button padding */
+    font-size: 14px; /* Smaller text */
+  }
+
+  .tracking-tool .voice-button {
+    font-size: 18px; /* Smaller icon size */
+  }
+}

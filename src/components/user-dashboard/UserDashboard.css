@@ -1,0 +1,47 @@
+.summary-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 42vh;
+    background-color: rgb(9, 105, 125, 0.1); /* Example background color */
+    border-radius: 10px;
+    
+    
+  }
+  
+  .summary-containe:hover {
+  
+    box-shadow: 0 4px 10px rgba(9, 237, 237); /* Increase shadow to make it pop */
+  }
+  
+  
+  .content-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 63vh;
+    background-color: rgb(9, 105, 125, 0.1); /* Example background color */
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .summary-containe:hover {
+  
+    box-shadow: 0 4px 10px rgba(9, 237, 237); /* Increase shadow to make it pop */
+  }
+  
+
+  .container {
+    display: flex;
+  }
+  
+  .grid-item {
+    flex: 1;
+    padding: 1em;
+    border-left: 1px solid  rgb(1, 33, 105); /* Vertical line */
+  }
+  
+  .grid-item:first-child {
+    border-left: none; /* Remove the left border for the first item */
+  }
+  

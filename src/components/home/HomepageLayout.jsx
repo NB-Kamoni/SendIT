@@ -21,6 +21,7 @@ import {
 import HomeSummary from './HomeSummary'
 import HomeCalculating from './HomeCalculating'
 import HomeTracking from './HomeTracking'
+import { Link } from 'react-router-dom';
 
 
 
@@ -140,7 +141,7 @@ class DesktopContainer extends Component {
             size='large'
             style={{ padding: '1em 0em', backgroundColor: fixed ? 'rgb(253, 197, 0, 0.9)' : '#012169'   }}
           >
-            <Container>
+            <Container >
               <Menu.Item as='a' active>
                 Home
               </Menu.Item>
@@ -149,7 +150,9 @@ class DesktopContainer extends Component {
               <Menu.Item as='a'>Contact</Menu.Item>
               <Menu.Item position='right'>
                 <Button 
-                  as='a' 
+                  
+                  as={Link}
+                  to="/login" 
                   inverted={!fixed} 
                   primary={fixed} 
                   style={{ marginLeft: '0.5em', backgroundColor: fixed ? '#012169' : 'transparent', color: fixed ? 'white' : 'white' }}
@@ -157,7 +160,7 @@ class DesktopContainer extends Component {
                   Log in
                 </Button>
                 <Button 
-                  as='a' 
+                  as={Link} to="/register"  
                   inverted={!fixed} 
                   primary={fixed} 
                   style={{ marginLeft: '0.5em', backgroundColor: fixed ? '#012169' : 'transparent', color: fixed ? 'white' : 'white' }}
@@ -214,8 +217,8 @@ class MobileContainer extends Component {
             <Menu.Item as='a'>Services</Menu.Item>
             <Menu.Item as='a'>About</Menu.Item>
             <Menu.Item as='a'>Contact</Menu.Item>
-            <Menu.Item as='a'>Log in</Menu.Item>
-            <Menu.Item as='a'>Sign Up</Menu.Item>
+            <Menu.Item as={Link} to="/login" >Log In</Menu.Item>
+            <Menu.Item as={Link} to="/register" >Sign Up</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -232,10 +235,10 @@ class MobileContainer extends Component {
                   </Menu.Item>
                   <Menu.Item position='right'>
                     {/* when the screen is smaller */}
-                    <Button as='a' inverted>
+                    <Button as={Link} to="/login"  inverted>
                       Log in
                     </Button>
-                    <Button as='a' inverted style={{ marginLeft: '0.5em'  }}>
+                    <Button as={Link} to="/register"  inverted style={{ marginLeft: '0.5em'  }}>
                       Sign Up
                     </Button>
                   </Menu.Item>
@@ -268,7 +271,7 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
 
-// HomepageLayout component with SendIT content
+// HomepageLayout component
 const HomepageLayout = () => (
   <ResponsiveContainer>
     <Segment style={{ padding: '8em 0em', backgroundColor: '#012169', color: 'white' }} vertical>
@@ -299,7 +302,7 @@ const HomepageLayout = () => (
         </Grid.Row>
       </Grid>
     </Segment>
-
+{/* ------------------------------------------------------------------------------------------------------------------- */}
     <Segment style={{ padding: '0em', backgroundColor: '#012169' }} vertical>
       <Grid celled='internally' columns='equal' stackable>
         <Grid.Row textAlign='center'>
@@ -338,7 +341,7 @@ const HomepageLayout = () => (
         </Grid.Row>
       </Grid>
     </Segment>
-
+{/* --------------------------------------------------------------------------------------------- */}
     <Segment style={{ padding: '8em 0em', backgroundColor: '#012169' }} vertical>
       <Container text>
         <Header as='h3' style={{ fontSize: '2em', ...textStyles }}>

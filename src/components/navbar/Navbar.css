@@ -1,0 +1,29 @@
+/* General styles for the navigation bar */
+.navbar {
+    background-color: transparent; /* Default background */
+    padding: 25px; /* Padding around the navbar */
+    display: flex; /* Flex layout for alignment */
+    justify-content: space-between; /* Space between left and right sections */
+    align-items: center; /* Vertical alignment */
+    position: fixed; /* Fixed position for floating navbar */
+    left: 0; /* Align to the left edge */
+    right: 0; /* Extend to the right edge */
+    z-index: 1000; /* High z-index to keep it above other elements */
+    transition: background-color 0.3s; /* Smooth transition for background changes */
+  }
+  
+  
+  .custom-menuitem {
+    font-size: 1.125rem; 
+    color: white !important; 
+    
+  }
+  
+  .custom-image {
+    max-width: 130px;
+  }
+  
+  :hover.custom-menuitem {
+    font-size: 1.125rem; 
+    color: rgb(9, 237, 237) !important; 
+  }
