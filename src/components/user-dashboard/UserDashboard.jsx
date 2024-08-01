@@ -7,6 +7,8 @@ import {Grid, Header, Segment} from 'semantic-ui-react'
 import './UserDashboard.css';
 import TrackingTool from '../tracking/TrackinTool';
 import TypingEffect from '../TypingEffect';
+import SummaryMenu from './SummaryMenu';
+
 
 
 
@@ -15,7 +17,7 @@ const UserDashboard = () => {
 
     const renderContent = () => {
         switch (userRole) {
-            case 'student':
+            case 'client':
                 return (
 // ------------------------------------------------Client-Content-----------------------------------------------------------
                     <div>
@@ -33,7 +35,8 @@ const UserDashboard = () => {
                                 
                             </div>
                             <div className="grid-item">
-                               
+                               <SummaryMenu />
+                            
                             </div>
                         </div>
 
@@ -43,13 +46,13 @@ const UserDashboard = () => {
                     </div>
 // ------------------------------------------------Client-Content-END-----------------------------------------------------------                    
                 );
-            case 'instructor':
+            case 'courier':
                 return (
                     <div>
                         <div className="summary-container">
                             <WelcomeMessage />
                            {/* Add component here */}
-                            {/* Note: AdminFinanceSummary is not included here for 'instructor' */}
+                            {/* Note: AdminFinanceSummary is not included here for 'courier' */}
                         </div>
                         <div className="content-container">
                             <div className="left-column">

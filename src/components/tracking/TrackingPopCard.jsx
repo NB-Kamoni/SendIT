@@ -16,7 +16,7 @@ const TrackingPopCard = ({ results, onClose }) => {
           <div className="card-content">No Results</div>
         );
       case 'tab2':
-        return <div className="card-content">Content for Tab 2</div>;
+        return <div className="card-content">Content for </div>;
       case 'tab3':
         return <div className="card-content">Content for Tab 3</div>;
       default:

@@ -14,9 +14,9 @@ const getUserRole = (email) => {
   if (email.endsWith('@student.moringaschool.com')) {
     return 'admin';
   } else if (email.endsWith('@gmail.com')) {
-    return 'student';
+    return 'client';
   } else if (email.endsWith('@students.uonbi.ac.ke')) {
-    return 'instructor';
+    return 'courier';
   } else {
     return 'guest';
   }

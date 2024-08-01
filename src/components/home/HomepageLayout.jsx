@@ -25,6 +25,7 @@ import { Link } from 'react-router-dom';
 
 
 
+
 // Setting up responsive breakpoints
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -319,6 +320,7 @@ const HomepageLayout = () => (
   alignItems: 'center' 
 }}>
    <HomeTracking />
+
 </div>
           
           </Grid.Column>

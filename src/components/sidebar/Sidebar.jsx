@@ -33,15 +33,15 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/notes">
+                    <Link to="/notifications">
                         <FaBook />
-                        {!isCollapsed && <span>Notes</span>}
+                        {!isCollapsed && <span>Notifications</span>}
                     </Link>
                 </li>
                 <li>
-                    <Link to="/analytics">
+                    <Link to="/orders">
                         <FaChartLine />
-                        {!isCollapsed && <span>Analytics</span>}
+                        {!isCollapsed && <span>Orders</span>}
                     </Link>
                 </li>
                 <li>
@@ -50,12 +50,7 @@ const Sidebar = () => {
                         {!isCollapsed && <span>My Calendar</span>}
                     </Link>
                 </li>
-                <li>
-                    <Link to="/opportunities">
-                        <FaGraduationCap  />
-                        {!isCollapsed && <span>Opportunities</span>}
-                    </Link>
-                </li>
+                
                 <li>
                     <Link to="/help">
                         <FaQuestionCircle />

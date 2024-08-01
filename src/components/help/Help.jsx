@@ -7,23 +7,23 @@ const Exams = () => {
 
     const renderContent = () => {
         switch (userRole) {
-            case 'student':
+            case 'client':
                 return (
                     <div>
-                        <h2 style={{ color: '#4169E1' }}>Student Exams Dashboard</h2>
+                        <h2 style={{ color: '#4169E1' }}>client Exams Dashboard</h2>
                         <p style={{ color: '#4169E1' }}>View your upcoming exams, past exam results, and study materials.</p>
-                        {/* Add student-specific exam content here */}
+                        {/* Add client-specific exam content here */}
 
 
 
                     </div>
                 );
-            case 'instructor':
+            case 'courier':
                 return (
                     <div>
-                        <h2 style={{ color: '#4169E1' }}>Instructor Exams Dashboard</h2>
-                        <p style={{ color: '#4169E1' }}>Create exams, manage exam schedules, and review student submissions.</p>
-                        {/* Add instructor-specific exam content here */}
+                        <h2 style={{ color: '#4169E1' }}>courier Exams Dashboard</h2>
+                        <p style={{ color: '#4169E1' }}>Create exams, manage exam schedules, and review client submissions.</p>
+                        {/* Add courier-specific exam content here */}
 
 
 

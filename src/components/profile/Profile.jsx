@@ -10,7 +10,7 @@ const Profile = ({ visible, onClose }) => {
 
   useEffect(() => {
     if (visible) {
-      fetch(`http://127.0.0.1:5555/students`)
+      fetch(`http://127.0.0.1:5555/clients`)
         .then((response) => response.json())
         .then((data) => {
           setProfileData(data);

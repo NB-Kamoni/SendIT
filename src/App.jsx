@@ -9,7 +9,7 @@ import Dashboard from "./components/home/Dashboard";
 import Help from "./components/help/Help"
 import Send from "./components/send/Send";
 import Receive from "./components/receive/Receive";
-import Tracking from "./components/tracking/Tracking";
+
 import Analytics from "./components/analytics/Analytics";
 import Navbar from "./components/navbar/Navbar";
 
@@ -33,7 +33,7 @@ function Main() {
         <Route path="/send" element={<Send />} />
         <Route path="/receive" element={<Receive />} />
         <Route path="/analytics" element={<Analytics />} />
-        <Route path="/tracking" element={<Tracking />} />
+ 
         
         
         

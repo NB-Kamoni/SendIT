@@ -20,16 +20,16 @@ const SearchBar = () => {
     switch (userRole) {
       case 'admin':
         searchUrls = [
-          `/api/search/instructors?query=${value}`,
-          `/api/search/students?query=${value}`
+          `/api/search/couriers?query=${value}`,
+          `/api/search/clients?query=${value}`
         ];
         break;
-      case 'instructor':
+      case 'courier':
         searchUrls = [
-          `/api/search/students?query=${value}`
+          `/api/search/clients?query=${value}`
         ];
         break;
-      case 'student':
+      case 'client':
         searchUrls = [
           `/api/search/courses?query=${value}`
         ];
