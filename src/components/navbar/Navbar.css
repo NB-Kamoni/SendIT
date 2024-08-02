@@ -29,73 +29,55 @@
   width: 1px;
   height: 70px;
   background-color: rgb(0, 0, 0);
-  margin-bottom: -30px;
+  margin-bottom: -25px;
 }
 
 /* Hover effect for menu items */
 .custom-menuitem:hover {
   font-size: 1.125rem; 
-  color: rgb(9, 237, 237) !important; 
+  color: white !important; 
 }
 
 /* Style for the logo */
 .custom-image {
-  max-width: 130px;
+  max-width: 150px;
 }
 
-/* Media queries for responsive design */
+.custom-menubutton {
+  color: rgb(0, 0, 0) !important;
+  font-size: 1.125rem;
+  font-weight: bold;
+  border: 3px solid rgb(0, 0, 0)  !important;
 
-/* Tablets (up to 768px) */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 15px; /* Adjust padding for tablets */
-  }
-
-  .custom-menuitem {
-    font-size: 1rem; /* Reduce font size for tablets */
-    padding-right: 20px; /* Adjust space for vertical line */
-  }
-
-  .navbar .vertical-line {
-    height: 20px; /* Adjust height of the vertical line */
-  }
+  
 }
 
-/* Laptops (up to 1024px) */
-@media (max-width: 1024px) {
-  .navbar {
-    padding: 20px; /* Adjust padding for laptops */
-  }
-
-  .custom-menuitem {
-    font-size: 1.125rem; /* Maintain font size for laptops */
-    padding-right: 25px; /* Adjust space for vertical line */
-  }
-
-  .navbar .vertical-line {
-    height: 22px; /* Adjust height of the vertical line */
-  }
+.custom-menubutton:hover {
+  background-color: rgb(0, 0, 0) !important;
+  color: white !important;
+  font-weight: bold;
+  border: 3px solid #000 !important;
+  
 }
 
-/* Mobile phones (up to 480px) */
-@media (max-width: 480px) {
-  .navbar {
-    flex-direction: column; /* Stack items vertically */
-    padding: 10px; /* Adjust padding for mobile phones */
-  }
 
-  .custom-menuitem {
-    font-size: 0.875rem; /* Reduce font size for mobile phones */
-    padding-right: 0; /* Remove space for vertical line */
-    border-bottom: 1px solid #ccc; /* Add bottom border for mobile menu items */
-    margin-bottom: 10px; /* Space between items */
+ /* Media Queries */
+  
+  /* Laptops and Larger Screens */
+  @media (min-width: 1024px) {
+   
+    
   }
-
-  .navbar .vertical-line {
-    display: none; /* Hide vertical line on mobile */
+  
+  /* Tablets */
+  @media (max-width: 1023px) {
+    
   }
-
-  .custom-image {
-    max-width: 100px; /* Adjust logo size for mobile */
+  
+  /* Mobile Phones */
+  @media (max-width: 937px) {
+    .navbar {
+      display: none !important;
+    }
   }
-}
+  

@@ -86,7 +86,7 @@
   }
   
   /* Mobile Phones */
-  @media (max-width: 767px) {
+  @media (max-width: 937px) {
     .homepage-heading {
       height: 350px;
     }

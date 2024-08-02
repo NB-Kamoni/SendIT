@@ -1,0 +1,88 @@
+/* CSS for HomeSidebar Component */
+/* CSS for HomeSidebar Component */
+
+.sidebar-trigger {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    z-index: 1001; 
+    background-color: transparent !important; 
+    color: rgb(0, 0, 0) !important;
+  }
+  
+  .home-sidebar {
+    background-color: rgb(0, 0, 0) !important; /* Sidebar background color */
+    color: #fff; /* Text color */
+  }
+  
+  .home-sidebar .item {
+    font-family: 'Arial', sans-serif; /* Font family */
+    font-size: 18px; /* Font size */
+    padding: 16px; /* Padding */
+  }
+  
+  .home-sidebar .item:hover {
+    background-color: rgb(0, 0, 0) !important; /* Hover background color */
+    color: #fff !important; /* Hover text color */
+  }
+  
+  .sidebar-logo {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .close-sidebar {
+    position: absolute;
+    top: 16px;
+    right: -45px; /* Adjust as necessary to position the button outside the sidebar */
+    background-color: rgb(0, 0, 0); /* Match navbar color when scrolled */
+    color: #fff;
+    z-index: 1001; /* Ensure it is above other elements */
+  }
+  
+  
+ /* Media Queries */
+  
+  /* Laptops and Larger Screens */
+  @media (min-width: 1024px) {
+   
+    
+  }
+  
+  /* Tablets */
+  @media (max-width: 1023px) {
+  
+    
+      }
+  
+  
+  /* Mobile Phones */
+  @media (max-width: 937px) {
+    
+  }
+
+    /* Custom */
+  @media (min-width: 937px) {
+    .home-sidebar {
+        display: none !important;
+      }
+    .sidebar-trigger {
+        display: none !important;
+      }
+      .home-sidebar .item {
+        display: none !important;
+      }
+      
+      .home-sidebar .item:hover {
+        display: none !important;
+      }
+  }
+
+  @media (max-width: 400px) {
+    .sidebar-trigger {
+        position: fixed;
+        top: 50px;
+        left: 25px;
+        
+      }
+  }

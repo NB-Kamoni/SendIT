@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { doSignOut } from '../../firebase/auth';
 import { Button, Menu, Image } from 'semantic-ui-react';
-import './Navbar.css'; // Ensure this file contains the updated CSS
-import SearchBar from './SearchBar'; // Import if needed
+import './Navbar.css'; 
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false); // Track if the navbar is scrolled
@@ -34,7 +34,7 @@ const Navbar = () => {
     transition: 'background-color 0.3s', // Match CSS transition
   };
 
-  const logoUrl = 'https://github.com/NB-Kamoni/Images/blob/main/GLMS%20New.png?raw=true';
+  const logoUrl = '/src/assets/Black-logo.png';
 
   return (
     <Menu secondary style={navbarStyle} className="navbar">
@@ -43,6 +43,7 @@ const Navbar = () => {
         <Image src={logoUrl} alt="Company Logo" size="small" />
       </Menu.Item>
 
+      <Menu.Item className='custom-menuitem' as={Link} to="/">Home</Menu.Item>
       <Menu.Item className='custom-menuitem' as={Link} to="/couriers">Couriers</Menu.Item>
       <Menu.Item className='custom-menuitem' as={Link} to="/destinations">Destinations</Menu.Item>
       <Menu.Item className='custom-menuitem' as={Link} to="/services">Services</Menu.Item>
@@ -57,10 +58,11 @@ const Navbar = () => {
         <Menu.Menu position="right">
           <Menu.Item>
             <Button
-              basic
+              className='custom-menubutton'
+             
               inverted
               onClick={() => {
-                doSignOut().then(() => navigate('/login'));
+                doSignOut().then(() => navigate('/'));
               }}
             >
               Logout
@@ -71,24 +73,24 @@ const Navbar = () => {
 
       {!userLoggedIn && (
         <Menu.Menu position="right">
-          <Menu.Item>
-            <Button
-              basic
+          <Menu.Item >
+            <Button 
+              className='custom-menubutton'           
               inverted
               as={Link}
               to="/login"
-              style={{ marginRight: '0.5em' }}
+              
             >
               Login
             </Button>
           </Menu.Item>
           <Menu.Item>
             <Button
-              basic
+              className='custom-menubutton'        
               inverted
               as={Link}
               to="/register"
-              style={{ marginLeft: '0.5em' }}
+              
             >
               Signup
             </Button>
