@@ -42,6 +42,7 @@ const HomeHeadLine = () => {
       </div>
       <div className={styles.verticalLine}></div>
       <div className={styles.horizontalLine}></div>
+      
     </div>
   );
 };
