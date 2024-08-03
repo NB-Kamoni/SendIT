@@ -63,8 +63,9 @@
     }
   
     .homepage-heading-button {
-      font-size: 1.5em;
-      padding: 1em 2em;
+      font-size: 1.5em !important;
+      padding: 1em 2em !important;
+      color: white !important;
     }
   }
   

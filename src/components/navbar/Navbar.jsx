@@ -24,14 +24,14 @@ const Navbar = () => {
   }, []);
 
   const navbarStyle = {
-    backgroundColor: isScrolled ? 'rgb(9, 105, 125, 0.9)' : 'transparent', 
+    backgroundColor: isScrolled ? 'rgb(253, 197, 0)' : 'transparent', 
     padding: '16px', 
     position: 'fixed',
     top: 0, 
     left: 0, 
     right: 0, 
     zIndex: 1000,
-    transition: 'background-color 0.3s', // Match CSS transition
+    transition: 'background-color 3s', // Match CSS transition
   };
 
   const logoUrl = '/src/assets/Black-logo.png';

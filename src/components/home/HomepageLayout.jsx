@@ -2,6 +2,7 @@ import React from 'react';
 import HomeLanding from './HomeLanding'; 
 import Navbar from '../navbar/Navbar';
 import HomeSidebar from './HomeSidebar';
+import HomeHeadLine from './HomeHeadLine';
 
 
 const HomepageLayer = () => (
@@ -9,6 +10,9 @@ const HomepageLayer = () => (
     <Navbar />
     <HomeSidebar/>
     <HomeLanding />
+   
+    <HomeHeadLine />
+    
 
   </div>
 );
