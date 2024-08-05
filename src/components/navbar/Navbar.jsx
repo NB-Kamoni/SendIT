@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { doSignOut } from '../../firebase/auth';
 import { Button, Menu, Image } from 'semantic-ui-react';
-import './Navbar.css';
-import SearchBar from './SearchBar';
+import './Navbar.css'; 
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false); // Track if the navbar is scrolled
@@ -23,81 +23,82 @@ const Navbar = () => {
     };
   }, []);
 
-
   const navbarStyle = {
-    backgroundColor: isScrolled ? 'rgb(9, 105, 125, 0.9)' : 'transparent', 
+    backgroundColor: isScrolled ? 'rgb(253, 197, 0)' : 'transparent', 
     padding: '16px', 
     position: 'fixed',
     top: 0, 
     left: 0, 
     right: 0, 
     zIndex: 1000,
-    transition: 'background-color 2s', 
-  
+    transition: 'background-color 3s', // Match CSS transition
   };
 
-  const logoUrl = 'https://github.com/NB-Kamoni/Images/blob/main/GLMS%20New.png?raw=true';
+  const logoUrl = '/src/assets/Black-logo.png';
 
-  // return (
-    // <Menu secondary style={navbarStyle}>
+  return (
+    <Menu secondary style={navbarStyle} className="navbar">
+      {/* Logo as the first item, linking to the home page */}
+      <Menu.Item as={Link} to="/" className="custom-image">
+        <Image src={logoUrl} alt="Company Logo" size="small" />
+      </Menu.Item>
 
-    //    {/* Logo as the first item, linking to the home page */}
-    //   <Menu.Item as={Link} to="/" className="custom-image">
-    //       <Image src={logoUrl} alt="Company Logo" size="small"  />
-    //   </Menu.Item>
-    //   <Menu.Item className='custom-menuitem' as={Link} to="/user-dashboard">Home</Menu.Item>
-    //   <Menu.Item className='custom-menuitem'  as={Link} to="/exams">Exams</Menu.Item>
-    //   <Menu.Item className='custom-menuitem'  as={Link} to="/schedule">Schedule</Menu.Item>
-    //   <Menu.Item className='custom-menuitem'  as={Link} to="/finance">Finance</Menu.Item>
-    //   <Menu.Item className='custom-menuitem'  as={Link} to="/courses">Courses</Menu.Item>
+      <Menu.Item className='custom-menuitem' as={Link} to="/">Home</Menu.Item>
+      <Menu.Item className='custom-menuitem' as={Link} to="/couriers">Couriers</Menu.Item>
+      <Menu.Item className='custom-menuitem' as={Link} to="/destinations">Destinations</Menu.Item>
+      <Menu.Item className='custom-menuitem' as={Link} to="/services">Services</Menu.Item>
+      <Menu.Item className='custom-menuitem' as={Link} to="/careers">Careers</Menu.Item>
 
-    //   {userLoggedIn && (
-    //     <Menu.Menu position="right">
-    //        <SearchBar />
-    //       <Menu.Item className='custom-menuitem'  as={Link} to="/enquiries">Enquiries</Menu.Item>
-    //       <Menu.Item className='custom-menuitem'  as={Link} to="/choppy">Ask Choppy</Menu.Item>
-    //       <Menu.Item>
-    //         <Button
-    //           basic
-    //           inverted
-    //           onClick={() => {
-    //             doSignOut().then(() => navigate('/login'));
-    //           }}
-    //         >
-    //           Logout
-    //         </Button>
-    //       </Menu.Item>
-    //     </Menu.Menu>
-    //   )}
+      {/* Vertical line after menu items */}
+      <div className="vertical-line"></div>
 
-    //   {!userLoggedIn && (
-    //     <Menu.Menu position="right">
-    //       <Menu.Item>
-    //         <Button
-    //           basic
-    //           inverted
-    //           as={Link}
-    //           to="/login"
-    //           style={{ marginRight: '0.5em' }}
-    //         >
-    //           Login
-    //         </Button>
-    //       </Menu.Item>
-    //       <Menu.Item>
-    //         <Button
-    //           basic
-    //           inverted
-    //           as={Link}
-    //           to="/register"
-    //           style={{ marginLeft: '0.5em' }}
-    //         >
-    //           Signup
-    //         </Button>
-    //       </Menu.Item>
-    //     </Menu.Menu>
-    //   )}
-    // </Menu>
-  // );
+     
+
+      {userLoggedIn && (
+        <Menu.Menu position="right">
+          <Menu.Item>
+            <Button
+              className='custom-menubutton'
+             
+              inverted
+              onClick={() => {
+                doSignOut().then(() => navigate('/'));
+              }}
+            >
+              Logout
+            </Button>
+          </Menu.Item>
+        </Menu.Menu>
+      )}
+
+      {!userLoggedIn && (
+        <Menu.Menu position="right">
+          <Menu.Item >
+            <Button 
+              className='custom-menubutton'           
+              inverted
+              as={Link}
+              to="/login"
+              
+            >
+              Login
+            </Button>
+          </Menu.Item>
+          <Menu.Item>
+            <Button
+              className='custom-menubutton'        
+              inverted
+              as={Link}
+              to="/register"
+              
+            >
+              Signup
+            </Button>
+          </Menu.Item>
+        </Menu.Menu>
+      )}
+    </Menu>
+  );
 };
 
 export default Navbar;

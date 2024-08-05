@@ -1,29 +1,83 @@
 /* General styles for the navigation bar */
 .navbar {
-    background-color: transparent; /* Default background */
-    padding: 25px; /* Padding around the navbar */
-    display: flex; /* Flex layout for alignment */
-    justify-content: space-between; /* Space between left and right sections */
-    align-items: center; /* Vertical alignment */
-    position: fixed; /* Fixed position for floating navbar */
-    left: 0; /* Align to the left edge */
-    right: 0; /* Extend to the right edge */
-    z-index: 1000; /* High z-index to keep it above other elements */
-    transition: background-color 0.3s; /* Smooth transition for background changes */
-  }
+  background-color: transparent; /* Default background */
+  padding: 25px; /* Padding around the navbar */
+  display: flex; /* Flex layout for alignment */
+  justify-content: space-between; /* Space between left and right sections */
+  align-items: center; /* Vertical alignment */
+  position: fixed; /* Fixed position for floating navbar */
+  left: 0; /* Align to the left edge */
+  right: 0; /* Extend to the right edge */
+  z-index: 1000; /* High z-index to keep it above other elements */
+  transition: background-color 0.3s; /* Smooth transition for background changes */
+  border-bottom: 2px solid rgb(0, 0, 0) !important; /* Horizontal line below the navbar */
+ 
+}
+
+/* Style for menu items */
+.custom-menuitem {
+  font-size: 1.125rem; 
+  font-weight: bold !important;
+  color: rgb(0, 0, 0) !important; 
+  position: relative; 
+  padding-right: 30px;
+
+}
+
+/* Container for vertical line */
+.navbar .vertical-line {
+  width: 1px;
+  height: 70px;
+  background-color: rgb(0, 0, 0);
+  margin-bottom: -25px;
+}
+
+/* Hover effect for menu items */
+.custom-menuitem:hover {
+  font-size: 1.125rem; 
+  color: white !important; 
+}
+
+/* Style for the logo */
+.custom-image {
+  max-width: 150px;
+}
+
+.custom-menubutton {
+  color: rgb(0, 0, 0) !important;
+  font-size: 1.125rem;
+  font-weight: bold;
+  border: 3px solid rgb(0, 0, 0)  !important;
+
   
+}
+
+.custom-menubutton:hover {
+  background-color: rgb(0, 0, 0) !important;
+  color: white !important;
+  font-weight: bold;
+  border: 3px solid #000 !important;
   
-  .custom-menuitem {
-    font-size: 1.125rem; 
-    color: white !important; 
+}
+
+
+ /* Media Queries */
+  
+  /* Laptops and Larger Screens */
+  @media (min-width: 1024px) {
+   
     
   }
   
-  .custom-image {
-    max-width: 130px;
+  /* Tablets */
+  @media (max-width: 1023px) {
+    
   }
   
-  :hover.custom-menuitem {
-    font-size: 1.125rem; 
-    color: rgb(9, 237, 237) !important; 
+  /* Mobile Phones */
+  @media (max-width: 937px) {
+    .navbar {
+      display: none !important;
+    }
   }
+  

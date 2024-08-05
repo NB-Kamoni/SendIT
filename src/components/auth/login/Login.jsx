@@ -47,7 +47,7 @@ const Login = () => {
             <div className="login-card">
                 
             <div>
-      <img src="/src/assets/Blue-logo.png" alt="Global Learn Logo" className="login-header-img" />
+      <img src="/src/assets/Black-logo.png" alt="Global Learn Logo" className="login-header-img" />
           </div>
                 <form onSubmit={onSubmit} className="login-form">
                     <div className="login-field">

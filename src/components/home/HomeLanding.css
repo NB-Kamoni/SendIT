@@ -1,0 +1,117 @@
+/* General Styles for All Screens */
+.homepage-heading {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(253, 197, 0);
+    height: 100vh; /* Full viewport height */
+    margin-top: 0; /* Remove negative margin if unnecessary */
+  }
+  
+  .homepage-heading video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .homepage-heading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(253, 197, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text within overlay */
+  }
+  
+  .homepage-heading-title {
+    font-weight: bold;
+    color: rgb(0, 0, 0) !important; /* Secondary color */
+    margin-bottom: 0;
+    font-size: 5em !important;
+  }
+  
+  .homepage-heading-subtitle {
+    font-weight: normal;
+    color: rgb(0, 0, 0) !important; /* Secondary color */
+    margin-top: 0.5em;
+    font-size: 1.7em !important; /* Default size for larger screens */
+    margin-bottom: 100px !important;
+  }
+  
+  .homepage-heading-button {
+    background-color: rgb(0, 0, 0) !important; /* Secondary color */
+    color: white;
+    font-size: 1.7em;
+    padding: 1em 1.5em !important;
+  }
+  
+  /* Media Queries */
+  
+  /* Laptops and Larger Screens */
+  @media (min-width: 1024px) {
+    .homepage-heading-title {
+      font-size: 4em;
+    }
+  
+    .homepage-heading-subtitle {
+      font-size: 2em;
+      margin-top: 1em;
+    }
+  
+    .homepage-heading-button {
+      font-size: 1.5em !important;
+      padding: 1em 2em !important;
+      color: white !important;
+    }
+  }
+  
+  /* Tablets */
+  @media (max-width: 1023px) {
+    .homepage-heading-title {
+      font-size: 3em;
+    }
+  
+    .homepage-heading-subtitle {
+      font-size: 1.7em;
+      margin-top: 0.5em;
+    }
+  
+    .homepage-heading-button {
+      font-size: 1.3em;
+      padding: 0.8em 1.5em;
+    }
+  }
+  
+  /* Mobile Phones */
+  @media (max-width: 937px) {
+    .homepage-heading {
+      height: 350px;
+    }
+  
+    .homepage-heading-title {
+      font-size: 4em !important;
+      margin-top: -10px !important;
+      
+    
+    }
+  
+    .homepage-heading-subtitle {
+      font-size: 1em; /* Reduced size for mobile screens */
+      margin-top: 0.5em;
+      display: none;
+    }
+  
+    .homepage-heading-button {
+      font-size: 1.5em !important;
+      padding: 0.5em 0.5em !important;
+      margin-top: 120px !important;
+      margin-bottom: 20px !important;
+      
+     
+    }
+  }
+  
