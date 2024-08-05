@@ -3,6 +3,9 @@ import HomeLanding from './HomeLanding';
 import Navbar from '../navbar/Navbar';
 import HomeSidebar from './HomeSidebar';
 import HomeHeadLine from './HomeHeadLine';
+import Solutions from './Solutions';
+import Footer from './Footer';
+
 
 
 const HomepageLayer = () => (
@@ -10,8 +13,10 @@ const HomepageLayer = () => (
     <Navbar />
     <HomeSidebar/>
     <HomeLanding />
-   
     <HomeHeadLine />
+    <Solutions />
+    <Footer />
+   
     
 
   </div>

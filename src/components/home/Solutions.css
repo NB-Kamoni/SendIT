@@ -1,0 +1,174 @@
+.solutions-container {
+  width: 100% !important;
+  min-height: 100vh;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: auto;
+}
+
+.solutions-header {
+  color: white !important;
+  font-size: 3.5em !important;
+  margin-bottom: 5% !important;
+  margin-top: 5% !important;
+  margin-left: 10% !important;
+}
+
+.service-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(143, 143, 137, 0.318) !important;
+  padding: 10px 0;
+  font-weight: bold;
+  position: relative;
+  background-color: rgb(0, 0, 0)!important;
+  overflow: hidden;
+  transition: max-height 1s !important;
+  max-height: 100px;
+  margin-left: 10% !important;
+  margin-right: 10% !important;
+}
+
+.service-item.open {
+  max-height: 500px;
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: white !important;
+  font-size: 1.2em;
+}
+
+.service-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center !important;
+  width: 90%;
+}
+
+.service-title {
+  font-weight: bold !important;
+  text-align: left;
+  font-size: larger;
+}
+
+.service-summary {
+  position: absolute;
+  width: 85%;
+  margin-left: 23% !important;
+  color: rgb(255, 255, 255, 0.6);
+}
+
+.service-description {
+  height: 100px !important;
+  padding: 0 20px !important;
+  font-size: 1.2em;
+  line-height: 2em !important;
+  color: rgb(255, 255, 255, 0.6);
+  overflow: hidden;
+  position: relative;
+  width: 80%;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  margin-left: 22%;
+  margin-right: 0;
+  transition: max-height 1s !important;
+}
+
+.service-description.open {
+  max-height: 1000px;
+  padding: 10px 20px;
+}
+
+.toggle-button {
+  background: rgb(253, 197, 0) !important;
+  border-radius: 50% !important;
+  width: 40px; /* Increase button size */
+  height: 40px; /* Increase button size */
+  font-size: 24px; /* Increase icon size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 1s ease !important;
+  margin-right: 10% !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+.toggle-button:hover {
+  transform: rotate(180deg);
+}
+
+.toggle-button.open:hover {
+  transform: rotate(-180deg);
+}
+
+@media (max-width: 1023px) {
+  .solutions-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .solutions-header {
+    font-size: 2em;
+    text-align: center;
+    margin-left: 0 !important;
+  }
+
+  .service-item {
+    margin: 0 auto 20px auto;
+    width: 100%;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .service-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .service-title {
+    font-size: 1.2em; /* Reduced font size */
+    margin-bottom: 10px;
+  }
+
+  .service-summary {
+    position: relative;
+    margin: 0;
+    width: 100%;
+  }
+
+  .service-description {
+    margin-left: 0;
+    width: 90%;
+    font-size: 1em; /* Reduced font size */
+  }
+
+  .toggle-button {
+    margin: 20px 0;
+    width: 30px; /* Reduced button size */
+    height: 30px; /* Reduced button size */
+    font-size: 20px; /* Reduced icon size */
+  }
+}
+
+@media (min-width: 938px) {
+  .solutions-container {
+    width: 70%;
+  }
+}

@@ -1,6 +1,7 @@
 // HomeSummary.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import './HomeSummary.css';
+import { Divider } from 'semantic-ui-react'
 
 const HomeSummary = () => {
   const [data, setData] = useState({
@@ -19,6 +20,7 @@ const HomeSummary = () => {
     tonsOfGoods: 8500,
     satisfiedClients: 3125,
   };
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -71,7 +73,10 @@ const HomeSummary = () => {
   }, [hasIntersected]);
 
   return (
+
+    
     <div className="summary-container" ref={ref}>
+     
       <div className="summary-item">
         <span className="summary-title">Delivered Packages</span>
         <span className="summary-value">{data.deliveredPackages}</span>

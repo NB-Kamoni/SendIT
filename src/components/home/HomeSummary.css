@@ -5,19 +5,21 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    background-color: rgba(253, 197, 0);
+    background-color: rgba(0, 0, 0) !important;
     padding: 40px 20px;
     width: 100%;
     box-sizing: border-box;
     border-radius: 8px;
+    margin-top: 10%;
+    margin-bottom: 10%;
   }
   
   .summary-item {
     text-align: center;
-    color: #012169;
+    color: rgb(253, 197, 0);
     position: relative;
     flex: 1;
-    min-width: 200px; /* Ensure items don't get too small on small screens */
+    min-width: 200px; 
     margin: 10px 0;
   }
   
@@ -29,7 +31,7 @@
     transform: translateY(-50%);
     height: 100%;
     width: 1px;
-    background-color: #012169;
+    background-color: rgb(253, 197, 0) /*lines separating ...*/
   }
   
   .summary-title {
@@ -51,7 +53,7 @@
     }
   
     .summary-item:not(:last-child)::after {
-      display: none; /* Hide the separator on smaller screens */
+      display: none; 
     }
   
     .summary-item {
