@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Drawer, Spin } from 'antd';
-import { useAuth } from '../../contexts/AuthContext';
 
-const Profile = ({ visible, onClose }) => {
-  const { currentUser } = useAuth();
+const NotificationsDrawer = ({ visible, onClose }) => {
   const [loading, setLoading] = useState(true);
-  const [profileData, setProfileData] = useState([]);
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
     if (visible) {
-      fetch(`http://127.0.0.1:5555/clients`)
+      fetch(`http://127.0.0.1:5555/notifications`)
         .then((response) => response.json())
         .then((data) => {
-          setProfileData(data);
+          setNotifications(data);
           setLoading(false);
         })
         .catch((error) => {
-          console.error('Error fetching profile data:', error);
+          console.error('Error fetching notifications:', error);
           setLoading(false);
         });
     }
@@ -24,7 +22,7 @@ const Profile = ({ visible, onClose }) => {
 
   return (
     <Drawer
-      title="User Profile"
+      title="Notifications"
       placement="right"
       onClose={onClose}
       visible={visible}
@@ -33,10 +31,9 @@ const Profile = ({ visible, onClose }) => {
         <Spin />
       ) : (
         <div>
-          {profileData.map(pd => (
-            <div key={pd.id}>
-              <p><strong>Name:</strong> {pd.name}</p>
-              <p><strong>Email:</strong> {pd.email}</p>
+          {notifications.map(notification => (
+            <div key={notification.id} className={notification.read ? '' : 'unread-notification'}>
+              <p>{notification.message}</p>
             </div>
           ))}
         </div>
@@ -45,4 +42,4 @@ const Profile = ({ visible, onClose }) => {
   );
 };
 
-export default Profile;
+export default NotificationsDrawer;
