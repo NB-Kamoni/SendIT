@@ -8,6 +8,7 @@ import './UserDashboard.css';
 import TrackingTool from '../tracking/TrackinTool';
 import TypingEffect from '../TypingEffect';
 import SummaryMenu from './SummaryMenu';
+import MapComponent from '../maps/MapComponent';
 
 const UserDashboard = () => {
     const { userRole } = useAuth();
@@ -18,23 +19,9 @@ const UserDashboard = () => {
                 return (
                     <div className="content">
                         <div className="summary-container">
+                            
                             <div className="grid-item">
-                                <TrackingTool />
-                                <TypingEffect 
-                                    style={{ color: 'red' }}
-                                    texts={[
-                                        "Track Your Package with Ease", 
-                                        "Get Live Location Updates", 
-                                        "Choose Your Preferred Courier", 
-                                        "Receive a Free Quote Instantly", 
-                                        "Reliable Support at Your Fingertips"
-                                    ]}
-                                    speed={100} 
-                                    pause={1000} 
-                                />
-                            </div>
-                            <div className="grid-item">
-                                <SummaryMenu />
+                                <MapComponent />
                             </div>
                         </div>
                     </div>

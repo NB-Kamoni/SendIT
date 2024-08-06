@@ -3,10 +3,11 @@
   display: flex;
   align-items: center;
   position: relative;
-  max-width: 100%; /* Full width container */
-  padding: 10px; /* Padding around the container */
+  max-width: 80%; /* Full width container */
+  padding: 0px; /* Padding around the container */
   box-sizing: border-box; /* Include padding in width calculation */
-  margin-bottom: 25px;
+  margin-left: 50px;
+
   
   
 }
