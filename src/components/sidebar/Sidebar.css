@@ -1,59 +1,126 @@
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    background: transparent; /* Transparent background */
-    box-shadow: none;
-    transition: width 0.3s; /* Smooth transition for collapsing */
-    width: 250px; /* Default expanded width */
-    margin-top: 100px;
-}
-
-.sidebar.collapsed {
-    width: 60px; /* Collapsed width */
-}
-
-.sidebar-menu {
-    list-style: none;
-    padding: 20px;
-    margin: 0;
-}
-
-.sidebar-menu li {
+/* Sidebar.css */
+.sidebar-container {
+    width: 200px;
+    transition: width 0.3s;
+    background-color: #333;
+    color: #fff;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 20px 10px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  
+  .sidebar-container.closed {
+    width: 60px;
+  }
+  
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: opacity 0.3s, width 0.3s;
+  }
+  
+  .profile-section.closed {
+    opacity: 0;
+    width: 0;
+  }
+  
+  .profile-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     margin-bottom: 10px;
-}
-
-.sidebar-menu li a {
-    text-decoration: none;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-
-.sidebar-menu li a span {
-    transition: opacity 0.3s;
-}
-
-.sidebar.collapsed .sidebar-menu li a span {
-    opacity: 0; /* Hide text when collapsed */
-}
-
-.sidebar .toggle-button {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .profile-picture {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  
+  .profile-initials {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .toggle-button {
     background: none;
     border: none;
-    color: white;
+    color: #fff;
     cursor: pointer;
-    font-size: 24px;
-    padding: 10px;
-    margin-left: 15px;
-}
-
-.sidebar .toggle-button:hover {
-    color: rgba(9, 237, 237); /* Slight color change on hover */
-}
+    position: absolute;
+    right: -20px; /* Positioning it outside the sidebar */
+    top: 20px; /* Adjust as needed */
+    width: 40px; /* Making it square */
+    height: 40px; /* Making it square */
+    background-color: #444; /* Optional: background color */
+    border-radius: 5px; /* Optional: border radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s;
+  }
+  
+  .sidebar-container.closed .toggle-button {
+    right: -20px; /* Adjust as needed for closed state */
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    justify-content: center; /* Centering the icons */
+    transition: all 0.3s; /* Subtle movements */
+  }
+  
+  .menu-item:hover {
+    background-color: #444;
+  }
+  
+  .menu-icon {
+    margin-right: 10px;
+    transition: margin-right 0.3s;
+  }
+  
+  .menu-icon.closed {
+    margin-right: 0;
+  }
+  
+  .menu-text {
+    display: inline-block;
+    transition: opacity 0.3s, width 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .menu-text.closed {
+    opacity: 0;
+    width: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar-container {
+      width: 60px;
+    }
+    .profile-section {
+      opacity: 1;
+      width: auto;
+    }
+  }
+  

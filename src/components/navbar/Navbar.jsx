@@ -13,7 +13,7 @@ const Navbar = () => {
   const [profileDrawerVisible, setProfileDrawerVisible] = useState(false);
   const [notificationsDrawerVisible, setNotificationsDrawerVisible] = useState(false);
   const navigate = useNavigate();
-  const { userLoggedIn, currentUser } = useAuth();
+  const { userLoggedIn, currentUser, userRole } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +50,47 @@ const Navbar = () => {
 
   const logoUrl = '/src/assets/Black-logo.png';
 
+  const renderMenuItems = () => {
+    switch (userRole) {
+      case 'client':
+        return (
+          <>
+            <Menu.Item className='custom-menuitem' as={Link} to="/">Home</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/user-dashboard">Dashboard</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/my-orders">My Orders</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/Billing">Billing</Menu.Item>
+          </>
+        );
+      case 'courier':
+        return (
+          <>
+            <Menu.Item className='custom-menuitem' as={Link} to="/">Home</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/user-dashboard">Dashboard</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/deliveries">Deliveries</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/invoicing">Invoicing</Menu.Item>
+          </>
+        );
+      case 'admin':
+        return (
+          <>
+            <Menu.Item className='custom-menuitem' as={Link} to="/">Home</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/user-dashboard">Dashboard</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/couriers">Couriers</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/clients">Clients</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/finance">Finance</Menu.Item>
+          </>
+        );
+      default:
+        return (
+          <>
+            <Menu.Item className='custom-menuitem' as={Link} to="/">Home</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/login">Login</Menu.Item>
+            <Menu.Item className='custom-menuitem' as={Link} to="/register">Signup</Menu.Item>
+          </>
+        );
+    }
+  };
+
   return (
     <Menu secondary style={navbarStyle} className="navbar">
       <Menu.Item as={Link} to="/" className="custom-image">
@@ -65,13 +106,7 @@ const Navbar = () => {
           <Menu.Item className='custom-menuitem' as={Link} to="/careers">Careers</Menu.Item>
         </>
       ) : (
-        <>
-          <Menu.Item className='custom-menuitem' as={Link} to="/">Home</Menu.Item>
-          <Menu.Item className='custom-menuitem' as={Link} to="/dashboard">Dashboard</Menu.Item>
-          <Menu.Item className='custom-menuitem' as={Link} to="/my-orders">My Orders</Menu.Item>
-          <Menu.Item className='custom-menuitem' as={Link} to="/billing">Billing</Menu.Item>
-          <Menu.Item className='custom-menuitem' as={Link} to="/profile">Profile</Menu.Item>
-        </>
+        renderMenuItems()
       )}
 
       <div className="vertical-line"></div>
@@ -90,6 +125,18 @@ const Navbar = () => {
                 <div className="profile-initials">{currentUser.displayName.charAt(0)}</div>
               )}
             </div>
+          </Menu.Item>
+          <Menu.Item>
+            <Button
+              className='custom-menubutton'
+              inverted
+              onClick={async () => {
+                await doSignOut();
+                navigate('/home');
+              }}
+            >
+              Logout
+            </Button>
           </Menu.Item>
         </Menu.Menu>
       )}

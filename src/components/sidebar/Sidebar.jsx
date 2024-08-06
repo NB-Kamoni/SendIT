@@ -1,65 +1,148 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
-import { FaTachometerAlt, FaBook, FaChartLine, FaQuestionCircle, FaBars, FaBox, FaGraduationCap, FaCalendar } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
 import './Sidebar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUser, faCog, faChevronLeft, faChevronRight, faBox, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+
+const getGreeting = () => {
+  const currentHour = new Date().getHours();
+
+  if (currentHour < 12) {
+    return 'Good morning';
+  } else if (currentHour < 18) {
+    return 'Good afternoon';
+  } else {
+    return 'Good evening';
+  }
+};
+
+const extractFirstName = (email) => {
+  const namePart = email.split('@')[0];
+  const firstName = namePart.split('.')[0];
+  return firstName.charAt(0).toUpperCase() + firstName.slice(1);
+};
 
 const Sidebar = () => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+  const { currentUser, userRole } = useAuth();
+  const greeting = getGreeting();
+  const [isOpen, setIsOpen] = useState(true);
 
-    // Detect if the screen width is less than 768px
-    const isMobile = useMediaQuery({ maxWidth: 768 });
+  const userName = currentUser.displayName
+    ? currentUser.displayName.split(' ')[0]
+    : extractFirstName(currentUser.email);
 
-    // Toggle the sidebar when the button is clicked
-    const toggleSidebar = () => {
-        setIsCollapsed(!isCollapsed);
-    };
+  const renderMenuItems = () => {
+    switch (userRole) {
+      case 'client':
+        return (
+          <>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faHome} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Home</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faUser} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Dashboard</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faBox} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>My Orders</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faMoneyBill} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Billing</span>
+            </div>
+          </>
+        );
+      case 'courier':
+        return (
+          <>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faHome} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Home</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faUser} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Dashboard</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faBox} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Deliveries</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faMoneyBill} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Invoicing</span>
+            </div>
+          </>
+        );
+      case 'admin':
+        return (
+          <>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faHome} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Home</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faUser} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Dashboard</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faUser} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Couriers</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faUser} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Clients</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faMoneyBill} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Finance</span>
+            </div>
+          </>
+        );
+      default:
+        return (
+          <>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faHome} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Home</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faUser} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Login</span>
+            </div>
+            <div className="menu-item">
+              <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faUser} />
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Signup</span>
+            </div>
+          </>
+        );
+    }
+  };
 
-    // Collapse the sidebar when the screen is mobile
-    useEffect(() => {
-        setIsCollapsed(isMobile);
-    }, [isMobile]); // Dependency on isMobile to re-evaluate when screen size changes
-
-    return (
-        <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
-            <button className="toggle-button" onClick={toggleSidebar}>
-                <FaBars />
-            </button>
-            <ul className="sidebar-menu">
-                <li>
-                    <Link to="/user-dashboard">
-                        <FaTachometerAlt />
-                        {!isCollapsed && <span>Dashboard</span>}
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/notifications">
-                        <FaBook />
-                        {!isCollapsed && <span>Notifications</span>}
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/orders">
-                        <FaChartLine />
-                        {!isCollapsed && <span>Orders</span>}
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/calendar">
-                        <FaCalendar  />
-                        {!isCollapsed && <span>My Calendar</span>}
-                    </Link>
-                </li>
-                
-                <li>
-                    <Link to="/help">
-                        <FaQuestionCircle />
-                        {!isCollapsed && <span>Help</span>}
-                    </Link>
-                </li>
-            </ul>
+  return (
+    <div className={`sidebar-container ${isOpen ? '' : 'closed'}`}>
+      <div className={`profile-section ${isOpen ? '' : 'closed'}`}>
+        <div className="profile-circle">
+          {currentUser.photoURL ? (
+            <img src={currentUser.photoURL} alt="Profile" className="profile-picture" />
+          ) : (
+            <div className="profile-initials">{userName.charAt(0)}</div>
+          )}
         </div>
-    );
+        <div className="greeting">{greeting}, {userName}!</div>
+      </div>
+      <div className="menu-items">
+        {renderMenuItems()}
+      </div>
+      <button
+        className="toggle-button"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <FontAwesomeIcon icon={isOpen ? faChevronLeft : faChevronRight} />
+      </button>
+    </div>
+  );
 };
 
 export default Sidebar;

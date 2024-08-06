@@ -21,10 +21,8 @@ const UserDashboard = () => {
                 return (
 // ------------------------------------------------Client-Content-----------------------------------------------------------
                     <div>
-                        <div className="container">
-                            <div className="grid-item">
-                                <WelcomeMessage />
-                            </div>
+                        <div className="Summarycontainer">
+                            
                             <div className="grid-item">
                                 <TrackingTool />
                                 <TypingEffect style={{color: 'red'}}
@@ -49,12 +47,13 @@ const UserDashboard = () => {
             case 'courier':
                 return (
                     <div>
-                        <div className="summary-container">
-                            <WelcomeMessage />
+                        <div className="summarycontainer">
+                        <Sidebar />
+                           
                            {/* Add component here */}
                             {/* Note: AdminFinanceSummary is not included here for 'courier' */}
                         </div>
-                        <div className="content-container">
+                        <div className="contentcontainer">
                             <div className="left-column">
                                {/* Add component here */}
                             </div>
@@ -69,11 +68,14 @@ const UserDashboard = () => {
                         </div>
                     </div>
                 );
+                
+ // ------------------------------------------------Client-Content-END-----------------------------------------------------------   
             case 'admin':
                 return (
                     <div>
-                        <div className="summary-container">
-                            <WelcomeMessage />
+                        <div className="summarycontainer">
+                        <Sidebar />
+                         
                           {/* Add component here */}
                     
                         </div>
@@ -103,9 +105,10 @@ const UserDashboard = () => {
     };
 
     return (
-        <div className="dashboard">
-            <Sidebar />
+        <div className="user-dashboard">
+            
             <div className="content-card">
+                <Sidebar />
                 {renderContent()}
             </div>
         </div>

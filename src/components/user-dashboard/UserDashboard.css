@@ -1,47 +1,97 @@
-.summary-container {
+  /* The dashboard styling starts here */
+  .user-dashboard {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 42vh;
-    background-color: rgb(9, 105, 125, 0.1); /* Example background color */
-    border-radius: 10px;
-    
-    
-  }
-  
-  .summary-containe:hover {
-  
-    box-shadow: 0 4px 10px rgba(9, 237, 237); /* Increase shadow to make it pop */
-  }
-  
-  
-  .content-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 63vh;
-    background-color: rgb(9, 105, 125, 0.1); /* Example background color */
-    border-radius: 10px;
-    margin-top: 20px;
-  }
-  
-  .summary-containe:hover {
-  
-    box-shadow: 0 4px 10px rgba(9, 237, 237); /* Increase shadow to make it pop */
-  }
-  
+    background-color: rgb(253, 197, 0); 
+    flex-direction: column; 
+    height: 100vh; 
+    overflow: hidden; 
+}
 
-  .container {
-    display: flex;
-  }
+.content-card {
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 10px; 
+    flex: 1; 
+    min-height: 0; 
+    margin-top: 85px;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .content-card {
+        margin-left: 10px; 
+        margin-right: 10px; 
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .content-card {
+        margin-left: 10px; 
+        margin-right: 10px; 
+        
+    }
+}
+
+@media (max-width: 480px) {
+    .content-card {
+        padding: 10px; 
+    }
+}
+
+
+
+
+
+.summary-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 42vh;
+  background-color: rgb(9, 105, 125, 0.1); /* Example background color */
+  border-radius: 10px;
   
-  .grid-item {
-    flex: 1;
-    padding: 1em;
-    border-left: 1px solid  rgb(1, 33, 105); /* Vertical line */
-  }
   
-  .grid-item:first-child {
-    border-left: none; /* Remove the left border for the first item */
-  }
-  
+}
+
+.summary-containe:hover {
+
+  box-shadow: 0 4px 10px rgba(9, 237, 237); /* Increase shadow to make it pop */
+}
+
+
+.content-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 63vh;
+  background-color: rgb(9, 105, 125, 0.1); /* Example background color */
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.summary-containe:hover {
+
+  box-shadow: 0 4px 10px rgba(9, 237, 237); /* Increase shadow to make it pop */
+}
+
+
+.container {
+  display: flex;
+}
+
+.grid-item {
+  flex: 1;
+  padding: 1em;
+  border-left: 1px solid  rgb(1, 33, 105); /* Vertical line */
+}
+
+.grid-item:first-child {
+  border-left: none; /* Remove the left border for the first item */
+}
+
+
+
