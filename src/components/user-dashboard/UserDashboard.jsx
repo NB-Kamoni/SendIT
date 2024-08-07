@@ -17,14 +17,9 @@ const UserDashboard = () => {
         switch (userRole) {
             case 'client':
                 return (
-                    <div className="content">
-                        <div className="summary-container">
-                            
-                            <div className="grid-item">
+                    
                                 <MapComponent />
-                            </div>
-                        </div>
-                    </div>
+                       
                 );
             case 'courier':
                 return (

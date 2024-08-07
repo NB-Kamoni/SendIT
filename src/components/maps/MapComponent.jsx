@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import MapCard from './MapCard';
 import SendFormCard from './SendFormCard';
+import './MapComponent.css'; // Import the CSS file
 
 const MapComponent = () => {
   const [directions, setDirections] = useState(null);
@@ -40,11 +40,15 @@ const MapComponent = () => {
   };
 
   return (
-
-    
-    <div>
-      <SendFormCard onFormSubmit={handleFormSubmit} />
-      <MapCard currentLocation={currentLocation} directions={directions} />
+    <div className="map-component">
+      <div className="grid-container">
+        <div className="grid-item">
+          <SendFormCard onFormSubmit={handleFormSubmit} />
+        </div>
+        <div className="grid-item">
+          <MapCard currentLocation={currentLocation} directions={directions} />
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,74 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { LoadScript, GoogleMap, DirectionsService, DirectionsRenderer } from '@react-google-maps/api';
-import { Card, Form, Button } from 'semantic-ui-react';
+import React from 'react';
+import { LoadScript, GoogleMap, DirectionsRenderer } from '@react-google-maps/api';
+import { Card } from 'semantic-ui-react';
+import './MapCard.css'; // Import the CSS file
 
-const MapComponent = () => {
-  const [pickup, setPickup] = useState('');
-  const [dropoff, setDropoff] = useState('');
-  const [directions, setDirections] = useState(null);
-  const [currentLocation, setCurrentLocation] = useState(null);
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        setCurrentLocation({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
-      },
-      error => console.error(error),
-      { enableHighAccuracy: true }
-    );
-  }, []);
-
-  const handleSubmit = () => {
-    if (!pickup || !dropoff) {
-      console.error('Pickup and Dropoff locations are required.');
-      return;
-    }
-
-    const directionsService = new window.google.maps.DirectionsService();
-    directionsService.route(
-      {
-        origin: pickup,
-        destination: dropoff,
-        travelMode: window.google.maps.TravelMode.DRIVING,
-      },
-      (result, status) => {
-        if (status === window.google.maps.DirectionsStatus.OK) {
-          console.log('Directions result:', result);
-          setDirections(result);
-        } else {
-          console.error(`Error fetching directions ${result}`);
-        }
-      }
-    );
-  };
-
+const MapCard = ({ currentLocation, directions }) => {
   return (
-    <Card fluid>
-      <Card.Content>
-        <Form onSubmit={handleSubmit}>
-          <Form.Input
-            label="Pickup Location"
-            placeholder="Enter pickup location"
-            value={pickup}
-            onChange={e => setPickup(e.target.value)}
-          />
-          <Form.Input
-            label="Dropoff Location"
-            placeholder="Enter dropoff location"
-            value={dropoff}
-            onChange={e => setDropoff(e.target.value)}
-          />
-          <Button type="submit">Get Route</Button>
-        </Form>
-      </Card.Content>
-      <Card.Content>
+    <Card fluid className="map-card">
+      <Card.Content className="map-card-content">
         {currentLocation && (
           <LoadScript googleMapsApiKey="AIzaSyDUnOM8BN3N1DlUhSfyHMw8T9OtmTc6pjg">
             <GoogleMap
-              mapContainerStyle={{ height: '400px', width: '100%' }}
+              mapContainerClassName="google-map" /* Use the class for styling */
               center={currentLocation}
               zoom={14}
             >
@@ -85,4 +27,4 @@ const MapComponent = () => {
   );
 };
 
-export default MapComponent;
+export default MapCard;

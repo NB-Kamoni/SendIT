@@ -127,18 +127,17 @@ const Sidebar = () => {
           {currentUser.photoURL ? (
             <img src={currentUser.photoURL} alt="Profile" className="profile-picture" />
           ) : (
-            <div className="profile-initials">{userName.charAt(0)}</div>
+            <div className="profile-initials">{userName[0]}</div>
           )}
         </div>
-        <div className="greeting">{greeting}, {userName}!</div>
+        {isOpen && (
+          <>
+            <h2>{`${greeting}, ${userName}`}</h2>
+          </>
+        )}
       </div>
-      <div className="menu-items">
-        {renderMenuItems()}
-      </div>
-      <button
-        className="toggle-button"
-        onClick={() => setIsOpen(!isOpen)}
-      >
+      {renderMenuItems()}
+      <button className="dashtoggle-button" onClick={() => setIsOpen(!isOpen)}>
         <FontAwesomeIcon icon={isOpen ? faChevronLeft : faChevronRight} />
       </button>
     </div>

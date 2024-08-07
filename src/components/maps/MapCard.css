@@ -1,0 +1,26 @@
+.map-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure it takes the full height of the parent container */
+    width: 100%; /* Ensure it takes the full width of the parent container */
+    background-color: rgb(253, 197, 0) !important;
+
+    
+  }
+  
+  .map-card .ui.card {
+    border: none; /* Remove default border for a cleaner look */
+   
+    border-radius: 10px; /* Match the border-radius of the content card */
+  
+  }
+  
+  .map-card .ui.card .content {
+    padding: 0px; /* Remove default padding to fit the map correctly */
+  }
+  
+  .map-card .google-map {
+    height: 100%; /* Ensure the map takes up the full height of the card */
+    width: 100%; /* Ensure the map takes up the full width of the card */
+  }
+  
