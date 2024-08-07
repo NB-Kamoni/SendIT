@@ -9,20 +9,20 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgb(1, 33, 105, 0.9);
+    background: rgb(0, 0, 0, 0.9) !important;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     z-index: 1000;
 }
 
 /* Main card container */
 .card {
-    width: 90%;
+    width: 90% !important;
     max-width: 1000px;
-    height: 80%;
+    height: 95% !important;
     max-height: 700px;
-    background-color: rgb(1, 33, 105);
+    background-color: black !important;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
@@ -47,7 +47,7 @@
     text-align: center;
     padding: 10px 20px; /* Adjust padding for the tab size */
     cursor: pointer;
-    background-color: rgb(1, 33, 105);
+    background-color: black !important;
     border: 1px solid rgb(253, 197, 0);
     color: rgb(253, 197, 0);
     border-bottom: none;
@@ -58,7 +58,7 @@
 /* Active tab styling */
 .card-tab.active {
     background-color: rgb(253, 197, 0);
-    color: rgb(1, 33, 105);
+    color: white !important;
 }
 
 /* Body of the card */
@@ -70,11 +70,31 @@
     margin-top: 20px; /* Adjust this to align the content properly */
     overflow-y: auto;
     border-radius: 10px;
+    
 }
 
 /* Content inside the card */
-.card-content {
-    text-align: center;
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.register-form {
+    width: 50%; /* Form occupies the left half */
+}
+
+.image-container {
+    width: 50%; /* Image occupies the right half */
+    max-height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-image {
+    max-width: 120%;
+    max-height: 120%;
+    margin-top: -30%;
 }
 
 .register-field {
@@ -84,15 +104,17 @@
 .register-field label {
     display: block;
     margin-bottom: 5px;
-    color: rgb(1, 33, 105);
+    color: black;
 }
 
 .register-input {
     width: 100%;
     padding: 10px;
-    border: 1px solid rgb(1, 33, 105);
+    border: 1px solid black;
     border-radius: 5px;
     box-sizing: border-box;
+    background-color: rgb(253, 197, 0);
+    
 }
 
 .error-message {
@@ -103,12 +125,13 @@
 .register-button {
     width: 100%;
     padding: 10px;
-    background-color: rgb(1, 33, 105);
+    background-color: rgb(253, 197, 0);
     color: rgb(253, 197, 0);
-    border: none;
+    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 20px;
 }
 
 .register-button.disabled {
@@ -117,8 +140,8 @@
 }
 
 .register-button:hover:not(.disabled) {
-    background-color: rgb(253, 197, 0);
-    color: rgb(1, 33, 105);
+    background-color: white;
+    color: black;
 }
 
 .login-link {
@@ -145,6 +168,15 @@
 
     .card-tab {
         padding: 10px 15px;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .register-form,
+    .image-container {
+        width: 100%;
     }
 }
 

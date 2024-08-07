@@ -4,11 +4,13 @@ import { Card } from 'semantic-ui-react';
 import './MapCard.css'; // Import the CSS file
 
 const MapCard = ({ currentLocation, directions }) => {
+  const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
   return (
     <Card fluid className="map-card">
       <Card.Content className="map-card-content">
         {currentLocation && (
-          <LoadScript googleMapsApiKey="AIzaSyDUnOM8BN3N1DlUhSfyHMw8T9OtmTc6pjg">
+          <LoadScript googleMapsApiKey={googleMapsApiKey}>
             <GoogleMap
               mapContainerClassName="google-map" /* Use the class for styling */
               center={currentLocation}
