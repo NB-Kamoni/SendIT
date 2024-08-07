@@ -1,86 +1,192 @@
-.register-page {
+:root {
+    --tab-width: 33%; /* Adjust this value to set the tab width */
+}
+
+/* Overlay to create a darkened background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.9) !important;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
-    height: 100vh;
-    background-color: #09697D;
+    z-index: 1000;
+}
+
+/* Main card container */
+.card {
+    width: 90% !important;
+    max-width: 1000px;
+    height: 95% !important;
+    max-height: 700px;
+    background-color: black !important;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header containing the tabs */
+.card-header {
+    display: flex;
+    justify-content: flex-start; /* Align tabs to the right */
+    position: relative;
+    top: -1px; /* Adjust this to position the tabs properly */
+    left: 0;
+}
+
+/* Individual tab styling */
+.card-tab { 
+    flex: 0 0 auto; /* Prevent tabs from stretching */
+    width: auto; /* Allow tabs to take up only as much space as needed */
+    min-width: 120px;
+    text-align: center;
+    padding: 10px 20px; /* Adjust padding for the tab size */
+    cursor: pointer;
+    background-color: black !important;
+    border: 1px solid rgb(253, 197, 0);
+    color: rgb(253, 197, 0);
+    border-bottom: none;
+    z-index: 1;
+    border-left: none;
+}
+
+/* Active tab styling */
+.card-tab.active {
+    background-color: rgb(253, 197, 0);
+    color: white !important;
+}
+
+/* Body of the card */
+.card-body {
+    flex: 1;
+    padding: 20px;
+    background-color: rgb(253, 197, 0);
+    border-top: 1px solid #000;
+    margin-top: 20px; /* Adjust this to align the content properly */
+    overflow-y: auto;
+    border-radius: 10px;
     
 }
 
-.register-card {
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background: white;
-    width: 400px;
-    text-align: center;
-}
-
-.register-header {
-    font-size: 24px;
-    font-weight: bold;
-    color: rgb(9, 105, 125); 
+/* Content inside the card */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
 }
 
 .register-form {
+    width: 50%; /* Form occupies the left half */
+}
+
+.image-container {
+    width: 50%; /* Image occupies the right half */
+    max-height: 90%;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-image {
+    max-width: 120%;
+    max-height: 120%;
+    margin-top: -30%;
 }
 
 .register-field {
-    text-align: left;
+    margin-bottom: 15px;
+}
+
+.register-field label {
+    display: block;
+    margin-bottom: 5px;
+    color: black;
 }
 
 .register-input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid black;
     border-radius: 5px;
-    transition: border-color 0.3s;
-}
-
-.register-input:focus {
-    border-color: rgb(9, 105, 125); 
-}
-
-.register-button {
-    padding: 10px;
-    color: white;
-    background-color: rgb(9, 105, 125); 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.register-button:hover {
-    background-color: rgb(9, 105, 125); 
-}
-
-.disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+    box-sizing: border-box;
+    background-color: rgb(253, 197, 0);
+    
 }
 
 .error-message {
-    color: #ff3333;
-    font-weight: bold;
+    color: red;
+    margin-bottom: 15px;
+}
+
+.register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(253, 197, 0);
+    color: rgb(253, 197, 0);
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 20px;
+}
+
+.register-button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.register-button:hover:not(.disabled) {
+    background-color: white;
+    color: black;
 }
 
 .login-link {
-    font-size: 14px;
-    margin-top: 10px;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .login-link-text {
-    color: rgb(9, 105, 125); 
-    font-weight: bold;
+    color: rgb(1, 33, 105);
     text-decoration: none;
+    font-weight: bold;
 }
 
 .login-link-text:hover {
     text-decoration: underline;
-    color: rgb(9, 105, 125); 
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        height: 90%;
+    }
+
+    .card-tab {
+        padding: 10px 15px;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    .register-form,
+    .image-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 95%;
+        height: 95%;
+    }
+
+    .card-tab {
+        padding: 10px 10px;
+    }
 }

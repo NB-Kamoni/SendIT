@@ -62,10 +62,7 @@ const WelcomeMessage = () => {
       </div>
       <div className="welcome-message">
         Welcome to the {userRole.charAt(0).toUpperCase() + userRole.slice(1)} Dashboard.
-        {/* <div className="welcome-buttons">
-          
-          <button className="welcome-button" onClick={showMessagesDrawer}>Messages</button>
-        </div> */}
+        
       </div>
       <Profile visible={profileDrawerVisible} onClose={closeProfileDrawer} />
       <Messages visible={messagesDrawerVisible} onClose={closeMessagesDrawer} />

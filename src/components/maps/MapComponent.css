@@ -1,0 +1,33 @@
+.map-component {
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    height: 100%; /* Ensure it takes the full height of the content card */
+    width: 120% !important; /* Ensure it takes the full width of the content card */
+    background-color: black;
+    
+  }
+  
+  .grid-container {
+    display: flex; /* Use Flexbox for the layout */
+    flex: 1; /* Allow it to expand to fill the space */
+    gap: 0px; /* Space between the grid items */
+
+  }
+  
+  .grid-item {
+    flex: 1; /* Make sure each item takes up an equal amount of space */
+    overflow: hidden; /* Hide overflow to maintain layout */
+  }
+  
+  /* Optional: ensure map card has a proper height */
+  .map-card {
+    height: 100% !important; /* Adjust based on map card content */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .grid-container {
+      flex-direction: column; /* Stack items vertically on small screens */
+    }
+  }
+  

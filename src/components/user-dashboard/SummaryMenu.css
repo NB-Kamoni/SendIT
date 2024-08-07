@@ -1,48 +1,45 @@
 .summary-menu-card {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color:  rgb(1, 33, 105); /* Background color for the card */
-    border: 1px solid  rgb(1, 33, 105);
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    
-  }
-  
-  .summary-menu-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-    padding: 10px;
-    border-radius: 8px;
-  }
-  
-  .summary-menu-item:hover {
-    transform: scale(1.05);
-    background-color: rgb(1, 33, 105); /* Background color on hover */
-  }
-  
-  .summary-menu-icon {
-    font-size: 2rem;
-    color: rgb(253, 197, 0); /* Icon color */
-    margin-bottom: 10px;
-  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(1, 33, 105); /* Background color for the card */
+  border: 1px solid rgb(1, 33, 105);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  flex-wrap: wrap;
+}
 
-  .summary-menu-icon {
-    font-size: 2rem;
-    color: rgb(253, 197, 0); /* Icon color */
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 1rem;
-    color: rgb(253, 197, 0); /* Text color */
-    margin: 0;
-    font-size: 1em; 
-    font-family: 'Arial', sans-serif; 
-  }
-  
+.summary-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  padding: 10px;
+  border-radius: 8px;
+  flex: 1 1 150px; /* Adjust this value to control minimum size of each item */
+  margin: 10px; /* Space between items */
+  max-width: 200px;
+}
+
+.summary-menu-item:hover {
+  transform: scale(1.05);
+  background-color: rgb(1, 33, 105); /* Background color on hover */
+}
+
+.summary-menu-icon {
+  font-size: 2rem;
+  color: rgb(253, 197, 0); /* Icon color */
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  color: rgb(253, 197, 0); /* Text color */
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  white-space: nowrap; /* Prevents text wrapping */
+}
