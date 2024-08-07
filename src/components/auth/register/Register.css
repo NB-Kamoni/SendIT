@@ -1,86 +1,160 @@
-.register-page {
+:root {
+    --tab-width: 33%; /* Adjust this value to set the tab width */
+}
+
+/* Overlay to create a darkened background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(1, 33, 105, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #09697D;
-    
+    z-index: 1000;
 }
 
-.register-card {
+/* Main card container */
+.card {
+    width: 90%;
+    max-width: 1000px;
+    height: 80%;
+    max-height: 700px;
+    background-color: rgb(1, 33, 105);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header containing the tabs */
+.card-header {
+    display: flex;
+    justify-content: flex-start; /* Align tabs to the right */
+    position: relative;
+    top: -1px; /* Adjust this to position the tabs properly */
+    left: 0;
+}
+
+/* Individual tab styling */
+.card-tab { 
+    flex: 0 0 auto; /* Prevent tabs from stretching */
+    width: auto; /* Allow tabs to take up only as much space as needed */
+    min-width: 120px;
+    text-align: center;
+    padding: 10px 20px; /* Adjust padding for the tab size */
+    cursor: pointer;
+    background-color: rgb(1, 33, 105);
+    border: 1px solid rgb(253, 197, 0);
+    color: rgb(253, 197, 0);
+    border-bottom: none;
+    z-index: 1;
+    border-left: none;
+}
+
+/* Active tab styling */
+.card-tab.active {
+    background-color: rgb(253, 197, 0);
+    color: rgb(1, 33, 105);
+}
+
+/* Body of the card */
+.card-body {
+    flex: 1;
     padding: 20px;
-    border: 1px solid #e0e0e0;
+    background-color: rgb(253, 197, 0);
+    border-top: 1px solid #000;
+    margin-top: 20px; /* Adjust this to align the content properly */
+    overflow-y: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background: white;
-    width: 400px;
+}
+
+/* Content inside the card */
+.card-content {
     text-align: center;
 }
 
-.register-header {
-    font-size: 24px;
-    font-weight: bold;
-    color: rgb(9, 105, 125); 
-}
-
-.register-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
 .register-field {
-    text-align: left;
+    margin-bottom: 15px;
+}
+
+.register-field label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgb(1, 33, 105);
 }
 
 .register-input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(1, 33, 105);
     border-radius: 5px;
-    transition: border-color 0.3s;
-}
-
-.register-input:focus {
-    border-color: rgb(9, 105, 125); 
-}
-
-.register-button {
-    padding: 10px;
-    color: white;
-    background-color: rgb(9, 105, 125); 
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.register-button:hover {
-    background-color: rgb(9, 105, 125); 
-}
-
-.disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+    box-sizing: border-box;
 }
 
 .error-message {
-    color: #ff3333;
-    font-weight: bold;
+    color: red;
+    margin-bottom: 15px;
+}
+
+.register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(1, 33, 105);
+    color: rgb(253, 197, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.register-button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.register-button:hover:not(.disabled) {
+    background-color: rgb(253, 197, 0);
+    color: rgb(1, 33, 105);
 }
 
 .login-link {
-    font-size: 14px;
-    margin-top: 10px;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .login-link-text {
-    color: rgb(9, 105, 125); 
-    font-weight: bold;
+    color: rgb(1, 33, 105);
     text-decoration: none;
+    font-weight: bold;
 }
 
 .login-link-text:hover {
     text-decoration: underline;
-    color: rgb(9, 105, 125); 
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        height: 90%;
+    }
+
+    .card-tab {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 95%;
+        height: 95%;
+    }
+
+    .card-tab {
+        padding: 10px 10px;
+    }
 }

@@ -132,7 +132,7 @@ const Navbar = () => {
               inverted
               onClick={async () => {
                 await doSignOut();
-                navigate('/home');
+                navigate('/');
               }}
             >
               Logout
