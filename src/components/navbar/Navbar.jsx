@@ -122,7 +122,7 @@ const Navbar = () => {
               {currentUser.photoURL ? (
                 <img src={currentUser.photoURL} alt="Profile" className="profile-image" />
               ) : (
-                <div className="profile-initials">{currentUser.displayName.charAt(0)}</div>
+                <div className="profile-initials">{currentUser?.displayName?.charAt(0) || ''}</div>
               )}
             </div>
           </Menu.Item>
