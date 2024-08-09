@@ -4,6 +4,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import { doCreateUserWithEmailAndPassword } from '../../../firebase/auth';
 import axios from 'axios';
 import './Register.css';
+import ClientSignupPage from './ClientSignupPage';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -24,200 +25,22 @@ const Register = () => {
         navigate('/login'); // Redirect to /login
     };
 
-    const uploadProfilePhoto = async (file) => {
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
-
-        try {
-            const response = await axios.post('https://api.cloudinary.com/v1_1/dan7dm7kx/image/upload', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            return response.data.secure_url; // URL of the uploaded image
-        } catch (error) {
-            console.error('Failed to upload image:', error);
-            return '';
-        }
-    };
-
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        if (password !== confirmPassword) {
-            setErrorMessage('Passwords do not match');
-            return;
-        }
-        if (!email || !password || !confirmPassword || !firstName || !lastName) {
-            setErrorMessage('Please fill in all required fields');
-            return;
-        }
-
-        setIsRegistering(true);
-        try {
-            const profilePhotoUrl = profilePhoto ? await uploadProfilePhoto(profilePhoto) : '';
-
-            if (activeTab === 'client') {
-                // Create user in Firebase Authentication
-                await doCreateUserWithEmailAndPassword(email, password);
-                navigate('/login');
-            } else {
-                // Handle corporate and courier registrations
-                const adminEmail = 'admin@example.com'; // Replace with actual admin email
-                const templateId = activeTab === 'corporate' ? 'corporate_template_id' : 'courier_template_id';
-                const variables = {
-                    email,
-                    admin_email: adminEmail,
-                    company_name: activeTab === 'corporate' ? companyName : undefined,
-                    contact_person: activeTab === 'corporate' ? contactPerson : undefined,
-                    profile_photo: profilePhotoUrl
-                };
-
-                await sendEmail(templateId, variables);
-                navigate('/onboarding');
-            }
-        } catch (err) {
-            setErrorMessage('Failed to create account');
-            setIsRegistering(false);
+    const renderContent = () => {
+        switch (activeTab) {
+            case 'client':
+                return <div className="client-tab-content">{/* Insert Client Sign-Up Component Here */}</div>;
+            case 'corporate':
+                return <div className="corporate-tab-content">{<ClientSignupPage />}</div>;
+            case 'courier':
+                return <div className="courier-tab-content">{/* Insert Courier Sign-Up Component Here */}</div>;
+            default:
+                return null;
         }
     };
 
     if (userLoggedIn) {
         return <Navigate to="/" replace />;
     }
-
-    const renderContent = () => {
-        const images = {
-            client: 'src/assets/individual.png',
-            corporate: 'src/assets/redcontainer.png',
-            courier: 'src/assets/anim.png'
-        };
-
-        return (
-            <div className="content-wrapper">
-                <form onSubmit={onSubmit} className="register-form">
-                    <div className="register-field">
-                        <label>First Name</label>
-                        <input
-                            type="text"
-                            value={firstName}
-                            onChange={(e) => setFirstName(e.target.value)}
-                            required
-                            className="register-input"
-                            autoComplete="given-name"
-                        />
-                    </div>
-                    <div className="register-field">
-                        <label>Last Name</label>
-                        <input
-                            type="text"
-                            value={lastName}
-                            onChange={(e) => setLastName(e.target.value)}
-                            required
-                            className="register-input"
-                            autoComplete="family-name"
-                        />
-                    </div>
-                    <div className="register-field">
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            className="register-input"
-                            autoComplete="email"
-                        />
-                    </div>
-                    <div className="register-field">
-                        <label>Password</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                            className="register-input"
-                            autoComplete="new-password"
-                        />
-                    </div>
-                    <div className="register-field">
-                        <label>Confirm Password</label>
-                        <input
-                            type="password"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            required
-                            className="register-input"
-                            autoComplete="off"
-                        />
-                    </div>
-                    {activeTab === 'corporate' && (
-                        <>
-                            <div className="register-field">
-                                <label>Company Name</label>
-                                <input
-                                    type="text"
-                                    value={companyName}
-                                    onChange={(e) => setCompanyName(e.target.value)}
-                                    required
-                                    className="register-input"
-                                    autoComplete="organization"
-                                />
-                            </div>
-                            <div className="register-field">
-                                <label>Contact Person</label>
-                                <input
-                                    type="text"
-                                    value={contactPerson}
-                                    onChange={(e) => setContactPerson(e.target.value)}
-                                    required
-                                    className="register-input"
-                                    autoComplete="name"
-                                />
-                            </div>
-                        </>
-                    )}
-                    {activeTab === 'courier' && (
-                        <>
-                            <div className="register-field">
-                                <label>Contact Person</label>
-                                <input
-                                    type="text"
-                                    value={contactPerson}
-                                    onChange={(e) => setContactPerson(e.target.value)}
-                                    required
-                                    className="register-input"
-                                    autoComplete="name"
-                                />
-                            </div>
-                        </>
-                    )}
-                    <div className="register-field">
-                        <label>Profile Photo</label>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => setProfilePhoto(e.target.files[0])}
-                            className="register-input"
-                        />
-                    </div>
-                    {errorMessage && (
-                        <div className="error-message">{errorMessage}</div>
-                    )}
-                    <button
-                        type="submit"
-                        disabled={isRegistering}
-                        className={`register-button ${isRegistering ? 'disabled' : ''}`}
-                    >
-                        {isRegistering ? 'Signing Up...' : 'Sign Up'}
-                    </button>
-                </form>
-                <div className="image-container">
-                    <img src={images[activeTab]} alt={`${activeTab} illustration`} className="tab-image" />
-                </div>
-            </div>
-        );
-    };
 
     return (
         <div className="overlay">
