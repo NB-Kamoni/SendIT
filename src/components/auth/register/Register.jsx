@@ -5,6 +5,7 @@ import { doCreateUserWithEmailAndPassword } from '../../../firebase/auth';
 import axios from 'axios';
 import './Register.css';
 import ClientSignupPage from './ClientSignupPage';
+import CourierEnrollment from './CourierEnrollment';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -22,24 +23,24 @@ const Register = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const onClose = () => {
-        navigate('/login'); // Redirect to /login
+        navigate('/'); 
     };
 
     const renderContent = () => {
         switch (activeTab) {
-            case 'client':
-                return <div className="client-tab-content">{/* Insert Client Sign-Up Component Here */}</div>;
-            case 'corporate':
+            case 'sender':
+                return <div className="client-tab-content">{<ClientSignupPage />}</div>;
+            case 'receiver':
                 return <div className="corporate-tab-content">{<ClientSignupPage />}</div>;
             case 'courier':
-                return <div className="courier-tab-content">{/* Insert Courier Sign-Up Component Here */}</div>;
+                return <div className="courier-tab-content">{<CourierEnrollment />}</div>;
             default:
-                return null;
+                return <div className="corporate-tab-content">{<ClientSignupPage />}</div>;
         }
     };
 
     if (userLoggedIn) {
-        return <Navigate to="/" replace />;
+        return <Navigate to="/user-dashboard" replace />;
     }
 
     return (
@@ -49,16 +50,16 @@ const Register = () => {
                 <div className="close-button" onClick={onClose}>&times;</div>
                 <div className="card-header">
                     <div
-                        className={`card-tab ${activeTab === 'client' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('client')}
+                        className={`card-tab ${activeTab === 'sender' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('sender')}
                     >
-                        Client
+                        Sender
                     </div>
                     <div
-                        className={`card-tab ${activeTab === 'corporate' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('corporate')}
+                        className={`card-tab ${activeTab === 'receiver' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('receiver')}
                     >
-                        Corporate
+                        Receiver
                     </div>
                     <div
                         className={`card-tab ${activeTab === 'courier' ? 'active' : ''}`}
@@ -69,12 +70,7 @@ const Register = () => {
                 </div>
                 <div className="card-body">
                     {renderContent()}
-                    <div className="login-link">
-                        Already have an account?{' '}
-                        <Link to="/login" className="login-link-text">
-                            Continue
-                        </Link>
-                    </div>
+                    
                 </div>
             </div>
         </div>

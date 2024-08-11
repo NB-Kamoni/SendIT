@@ -1,0 +1,182 @@
+.courier-enrollment-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.courier-enrollment-card {
+    padding: 75px;
+    border: 1px solid black;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: rgb(253, 197, 0);
+    width: 500px;
+    text-align: center;
+    z-index: 1000;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.courier-enrollment-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(9, 105, 125);
+    padding-bottom: 20px;
+}
+
+.courier-enrollment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.courier-enrollment-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background: rgb(253, 197, 0);
+    transition: border-color 0.3s;
+}
+
+.courier-enrollment-input:focus {
+    border-color: rgb(0, 0, 0);
+}
+
+.courier-enrollment-button {
+    justify-content: center;
+    padding: 10px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.courier-enrollment-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: rgb(253, 197, 0);
+}
+
+/* Radio Button Styling */
+.courier-type-selection {
+    display: flex;
+    flex-direction: row; 
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.courier-type-selection label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: black;
+}
+
+.courier-type-selection input[type="radio"] {
+    margin-right: 10px;
+    accent-color: rgb(0, 0, 0); /* Sets the color of the radio button */
+}
+
+/* Dropdown Styling */
+.courier-enrollment-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background: rgb(253, 197, 0);
+    transition: border-color 0.3s;
+    font-size: 16px;
+}
+
+.courier-enrollment-input:focus {
+    border-color: rgb(0, 0, 0);
+}
+
+/* Dropdown Specific Styling */
+select.courier-enrollment-input {
+    appearance: none; 
+    background: rgb(253, 197, 0) url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 12px;
+    cursor: pointer;
+    
+}
+
+/* Hover Effects */
+.courier-enrollment-input:hover {
+    border-color: rgb(0, 0, 0);
+}
+
+.courier-enrollment-input:focus,
+select.courier-enrollment-input:focus {
+    border-color: rgb(0, 0, 0);
+    outline: white;
+}
+
+
+
+
+
+/* Media queries for responsiveness */
+@media (max-width: 991px) {
+    .courier-enrollment-card {
+        padding: 60px;
+        width: 450px;
+    }
+
+    .courier-enrollment-header {
+        font-size: 22px;
+    }
+
+    .courier-enrollment-input {
+        padding: 8px;
+    }
+
+    .courier-enrollment-button {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 767px) {
+    .courier-enrollment-card {
+        padding: 40px;
+        width: 350px;
+    }
+
+    .courier-enrollment-header {
+        font-size: 20px;
+    }
+
+    .courier-enrollment-input {
+        padding: 7px;
+    }
+
+    .courier-enrollment-button {
+        padding: 7px;
+    }
+}
+
+@media (max-width: 479px) {
+    .courier-enrollment-card {
+        padding: 20px;
+        width: 300px;
+    }
+
+    .courier-enrollment-header {
+        font-size: 18px;
+    }
+
+    .courier-enrollment-input {
+        padding: 6px;
+    }
+
+    .courier-enrollment-button {
+        padding: 6px;
+    }
+}
