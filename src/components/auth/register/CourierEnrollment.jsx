@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './CourierEnrollment.css'; // Ensure your CSS is imported
 
 const countryData = [
@@ -10,17 +11,27 @@ const countryData = [
     // Add more countries here
 ];
 
+// Function to generate a random alphanumeric string
+const generateRandomUID = (length) => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let uid = '';
+    for (let i = 0; i < length; i++) {
+        uid += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return uid;
+};
+
 const CourierEnrollment = () => {
     const [courierType, setCourierType] = useState('individual');
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
         country: '',
-        phoneNumber: '',
+        phone_number: '',
         address: '',
-        modeOfTransport: '',
-        companyName: ''
+        mode_of_transport: '',
+        company_name: ''
     });
     const [error, setError] = useState('');
 
@@ -37,7 +48,7 @@ const CourierEnrollment = () => {
             setFormData({
                 ...formData,
                 country: selectedCountry.name,
-                phoneNumber: selectedCountry.code // Automatically sets the area code
+                phone_number: selectedCountry.code // Automatically sets the area code
             });
         }
     };
@@ -46,38 +57,42 @@ const CourierEnrollment = () => {
         e.preventDefault();
         const role = courierType === 'corporate' ? 'corporate_courier' : 'individual_courier';
 
+        // Build the complete data object with all necessary fields
         const dataToSend = {
             ...formData,
             role,
-            user_status: 'pending'
+            user_status: 'pending',
+            firebase_uid: generateRandomUID(16), // Generate a random alphanumeric UID
+            gps_location: null,
+            profile_photo_url: '',
+            account_balance: 0.0
         };
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/users', {
-                method: 'POST',
+            const response = await axios.post('https://sendit-server-j68q.onrender.com/users', dataToSend, {
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dataToSend)
+                }
             });
 
-            if (response.ok) {
+            if (response.status === 200) {
                 alert('Courier enrolled successfully!');
                 setFormData({
-                    firstName: '',
-                    lastName: '',
+                    first_name: '',
+                    last_name: '',
                     email: '',
                     country: '',
-                    phoneNumber: '',
+                    phone_number: '',
                     address: '',
-                    modeOfTransport: '',
-                    companyName: ''
+                    mode_of_transport: '',
+                    company_name: ''
                 });
             } else {
-                const errorText = await response.text();
-                setError(`Error enrolling courier: ${errorText}`);
+                console.error('Error response:', response);
+                setError(`Error enrolling courier: ${response.data}`);
             }
         } catch (error) {
+            console.error('Catch error:', error); // Log the caught error
             setError(`Error enrolling courier: ${error.message}`);
         }
     };
@@ -117,18 +132,18 @@ const CourierEnrollment = () => {
                     <input
                         className="courier-enrollment-input"
                         type="text"
-                        name="firstName"
+                        name="first_name"
                         placeholder="First Name"
-                        value={formData.firstName}
+                        value={formData.first_name}
                         onChange={handleChange}
                         required
                     />
                     <input
                         className="courier-enrollment-input"
                         type="text"
-                        name="lastName"
+                        name="last_name"
                         placeholder="Last Name"
-                        value={formData.lastName}
+                        value={formData.last_name}
                         onChange={handleChange}
                         required
                     />
@@ -156,9 +171,9 @@ const CourierEnrollment = () => {
                     <input
                         className="courier-enrollment-input"
                         type="text"
-                        name="phoneNumber"
+                        name="phone_number"
                         placeholder="Phone Number"
-                        value={formData.phoneNumber}
+                        value={formData.phone_number}
                         onChange={handleChange}
                         required
                     />
@@ -174,9 +189,9 @@ const CourierEnrollment = () => {
                     <input
                         className="courier-enrollment-input"
                         type="text"
-                        name="modeOfTransport"
+                        name="mode_of_transport"
                         placeholder="Mode of Transport"
-                        value={formData.modeOfTransport}
+                        value={formData.mode_of_transport}
                         onChange={handleChange}
                         required
                     />
@@ -185,9 +200,9 @@ const CourierEnrollment = () => {
                         <input
                             className="courier-enrollment-input"
                             type="text"
-                            name="companyName"
+                            name="company_name"
                             placeholder="Company Name"
-                            value={formData.companyName}
+                            value={formData.company_name}
                             onChange={handleChange}
                             required
                         />
