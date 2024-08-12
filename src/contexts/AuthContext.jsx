@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase/firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const AuthContext = React.createContext();
 
@@ -14,9 +14,14 @@ export function AuthProvider({ children }) {
   const [isEmailUser, setIsEmailUser] = useState(false);
   const [isGoogleUser, setIsGoogleUser] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [userRole, setUserRole] = useState('guest'); // Default role is guest
+  const [userRole, setUserRole] = useState('guest');
 
   useEffect(() => {
+    const savedUserRole = localStorage.getItem('userRole');
+    if (savedUserRole) {
+      setUserRole(savedUserRole);
+    }
+
     const unsubscribe = onAuthStateChanged(auth, initializeUser);
     return unsubscribe;
   }, []);
@@ -45,14 +50,33 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }
 
+  useEffect(() => {
+    if (userRole !== 'guest') {
+      localStorage.setItem('userRole', userRole);
+    }
+  }, [userRole]);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      localStorage.removeItem('userRole'); // Remove the user role from localStorage
+      setCurrentUser(null);
+      setUserLoggedIn(false);
+      setUserRole('guest');
+    } catch (error) {
+      console.error("Failed to log out:", error);
+    }
+  };
+
   const value = {
     userLoggedIn,
     isEmailUser,
     isGoogleUser,
     currentUser,
-    userRole, // Expose userRole in context
+    userRole,
     setCurrentUser,
-    setUserRole, // Expose setUserRole to allow setting role from signup pages
+    setUserRole,
+    handleLogout, // Expose the handleLogout function
   };
 
   return (

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { doSignOut } from '../../firebase/auth';
 import { Button, Menu, Image, Icon } from 'semantic-ui-react';
 import Profile from '../profile/Profile'; // Ensure correct import path
 import NotificationsDrawer from '../notifications/NotificationsDrawer'; // Ensure correct import path
@@ -13,7 +12,7 @@ const Navbar = () => {
   const [profileDrawerVisible, setProfileDrawerVisible] = useState(false);
   const [notificationsDrawerVisible, setNotificationsDrawerVisible] = useState(false);
   const navigate = useNavigate();
-  const { userLoggedIn, currentUser, userRole } = useAuth();
+  const { userLoggedIn, currentUser, userRole, handleLogout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -131,7 +130,7 @@ const Navbar = () => {
               className='custom-menubutton'
               inverted
               onClick={async () => {
-                await doSignOut();
+                await handleLogout(); // Sign out and remove userRole from localStorage
                 navigate('/');
               }}
             >

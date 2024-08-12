@@ -82,13 +82,7 @@ const CourierEnrollment = () => {
                 }
             });
 
-            // Immediately follow with a GET request to verify data
-            await axios.get(`https://sendit-server-j68q.onrender.com/users/${firebaseUid}`, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
+          
             // Set notification and clear form data
             setNotification('Application submitted. Please watch out for an email from SendIT with further instructions.');
             setFormData({
