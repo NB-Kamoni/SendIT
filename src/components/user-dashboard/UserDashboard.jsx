@@ -16,6 +16,7 @@ const UserDashboard = () => {
     const renderContent = () => {
         switch (userRole) {
             case 'client':
+                {/* Add client-specific components here */}
                 return (
                     
                                 <MapComponent />
@@ -25,12 +26,14 @@ const UserDashboard = () => {
                 return (
                     <div className="content">
                         {/* Add courier-specific components here */}
+                        <MapComponent />
                     </div>
                 );
             case 'admin':
                 return (
                     <div className="content">
                         {/* Add admin-specific components here */}
+                         <MapComponent />
                     </div>
                 );
             default:

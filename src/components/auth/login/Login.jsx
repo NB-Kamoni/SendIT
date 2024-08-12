@@ -31,6 +31,7 @@ const Login = () => {
             setIsSigningIn(true);
             try {
                 await doSignInWithGoogle();
+                
             } catch (err) {
                 setErrorMessage('Google sign-in failed');
                 setIsSigningIn(false);
@@ -40,6 +41,7 @@ const Login = () => {
 
     if (userLoggedIn) {
         return <Navigate to="/user-dashboard" replace />;
+        
     }
 
     return (
