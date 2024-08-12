@@ -25,18 +25,41 @@ const Login = () => {
         }
     };
 
+    const saveNewUser = async (firebase_uid, email) => {
+        try {
+            const response = await fetch('https://sendit-server-j68q.onrender.com/users/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ firebase_uid, email, role: 'client' }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save new user');
+            }
+        } catch (error) {
+            console.error('Error saving new user:', error);
+            setErrorMessage('Failed to save user information');
+        }
+    };
+
     const handleLoginSuccess = async (userCredential) => {
         try {
             const firebaseUid = userCredential.user.uid;
             const token = await userCredential.user.getIdToken();
             console.log('Firebase ID Token:', token);
-    
-            const userRole = await fetchUserRole(firebaseUid);
-    
-            if (userRole) {
-                setUserRole(userRole);
-                localStorage.setItem('userRole', userRole); // Store user role in localStorage
+
+            let userRole = await fetchUserRole(firebaseUid);
+
+            if (!userRole) {
+                // If userRole is not found, save new user as 'client'
+                await saveNewUser(firebaseUid, userCredential.user.email);
+                userRole = 'client';
             }
+
+            setUserRole(userRole);
+            localStorage.setItem('userRole', userRole); // Store user role in localStorage
         } catch (error) {
             console.error('Error during login:', error);
             setErrorMessage('Failed to complete login process');

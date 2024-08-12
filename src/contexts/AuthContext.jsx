@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
   const [isEmailUser, setIsEmailUser] = useState(false);
   const [isGoogleUser, setIsGoogleUser] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [userRole, setUserRole] = useState('guest');
+  const [userRole, setUserRole] = useState('client');
 
   useEffect(() => {
     const savedUserRole = localStorage.getItem('userRole');
@@ -44,14 +44,14 @@ export function AuthProvider({ children }) {
     } else {
       setCurrentUser(null);
       setUserLoggedIn(false);
-      setUserRole('guest');
+      setUserRole('client');
     }
 
     setLoading(false);
   }
 
   useEffect(() => {
-    if (userRole !== 'guest') {
+    if (userRole !== 'client') {
       localStorage.setItem('userRole', userRole);
     }
   }, [userRole]);
@@ -62,7 +62,7 @@ export function AuthProvider({ children }) {
       localStorage.removeItem('userRole'); // Remove the user role from localStorage
       setCurrentUser(null);
       setUserLoggedIn(false);
-      setUserRole('guest');
+      setUserRole('client');
     } catch (error) {
       console.error("Failed to log out:", error);
     }
