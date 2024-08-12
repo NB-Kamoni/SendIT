@@ -9,6 +9,8 @@ import TrackingTool from '../tracking/TrackinTool';
 import TypingEffect from '../TypingEffect';
 import SummaryMenu from './SummaryMenu';
 import MapComponent from '../maps/MapComponent';
+import UpdateParcel from '../update-parcel/UpdateParcel';
+import ParcelList from '../admin-view/ParcelList';
 
 const UserDashboard = () => {
     const { userRole } = useAuth();
@@ -31,6 +33,7 @@ const UserDashboard = () => {
                 return (
                     <div className="content">
                         {/* Add admin-specific components here */}
+                        <ParcelList />
                     </div>
                 );
             default:

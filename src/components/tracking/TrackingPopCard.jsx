@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './TrackingPopCard.css'; // Ensure you create this CSS file for styling
+import UpdateParcel from '../update-parcel/UpdateParcel';
+
 
 const TrackingPopCard = ({ results, onClose }) => {
   const [activeTab, setActiveTab] = useState('tab1');
@@ -13,7 +15,11 @@ const TrackingPopCard = ({ results, onClose }) => {
             <pre>{JSON.stringify(results, null, 2)}</pre>
           </div>
         ) : (
-          <div className="card-content">No Results</div>
+          <div className="card-content">
+            <div className='parcel-update'>
+              <UpdateParcel/>
+            </div>
+          </div>
         );
       case 'tab2':
         return <div className="card-content">Content for </div>;

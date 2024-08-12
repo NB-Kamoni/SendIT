@@ -82,9 +82,10 @@
   }
   
   /* Content inside the card */
-  .card-content {
+  /* .card-content {
     text-align: center;
-  }
+    display: flex;
+  } */
   
   /* Close button styling */
   .close-button {
@@ -95,7 +96,7 @@
     height: 30px;
     border-radius: 50%;
     background-color: rgb(253, 197, 0);
-    color: rgb(1, 33, 105);
+    color: black;
     text-align: center;
     line-height: 30px;
     font-size: 24px;
@@ -105,9 +106,9 @@
   }
   
   .close-button:hover {
-    background-color: rgb(1, 33, 105);
+    background-color: black;
     color: rgb(253, 197, 0);
-    border: 1px solid rgb(1, 33, 105);
+    border: 1px solid #fdc500;
   }
   
   /* Media queries for responsive design */

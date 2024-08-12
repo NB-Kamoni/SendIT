@@ -1,0 +1,45 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto
+}
+  
+div {
+    margin-bottom: 1rem;
+}
+  
+label {
+    margin-bottom: 0.5rem;
+    display: block;
+    color: white;
+    font-size: medium;
+}
+
+
+  
+input{
+    width: 100%;
+    padding: 100px;
+    box-sizing: border-box;
+}
+  
+.update{
+    padding: 0.5rem;
+    background-color: #fdc500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    position: relative;
+    left: 15%;
+    top: 30%;
+}
+  
+button:hover {
+    background-color: #fdc500;
+}
+h2{
+    color: white;
+}

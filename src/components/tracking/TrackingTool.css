@@ -19,8 +19,8 @@
   font-size: 16px;
   border: 2px solid #ccc; /* Light gray border */
   border-radius: 25px; /* Rounded corners */
-  background-color: rgb(1, 33, 105); /* Light background */
-  color: rgb(253, 197, 0); /* Dark text */
+  background-color: black; /* Light background */
+  color: white; /* Dark text */
   transition: border-color 0.3s ease; /* Smooth transition for border color */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   height: 50px;
@@ -33,7 +33,7 @@
 
 /* Style for input field on focus */
 .tracking-tool input:focus {
-  border-color: #007bff; /* Blue border on focus */
+  border-color: #fdc500; /* Blue border on focus */
   outline: none; /* Remove default outline */
 }
 
@@ -43,7 +43,7 @@
   padding: 5px 10px;
   font-size: 18px;
   color: rgb(253, 197, 0); /* White text color */
-  background-color: rgb(1, 33, 105); /* Blue background color */
+  background-color: black; /* Blue background color */
   border: none; /* Remove default border */
   border-radius: 4px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
@@ -55,7 +55,7 @@
 /* Style for button on hover */
 .tracking-tool button:hover {
   background-color: rgb(253, 197, 0); /* Darker blue on hover */
-  color: rgb(1, 33, 105);
+  color: black;
 }
 
 /* Style for button on focus */
@@ -65,7 +65,7 @@
 
 /* Style for button on active (clicked) state */
 .tracking-tool button:active {
-  background-color: rgb(1, 33, 105); /* Even darker blue on click */
+  background-color: black; /* Even darker blue on click */
 }
 
 /* Style for voice button */
@@ -75,7 +75,7 @@
   top: 50%;
   transform: translateY(-50%); /* Center vertically */
   font-size: 20px;
-  color: rgb(1, 33, 105); /* Blue icon color */
+  color: black; /* Blue icon color */
   background: none; /* No background */
   border: none; /* Remove border */
   cursor: pointer; /* Pointer cursor on hover */
@@ -130,3 +130,5 @@
     font-size: 18px; /* Smaller icon size */
   }
 }
+
+
