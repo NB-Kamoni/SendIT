@@ -43,14 +43,14 @@ const TrackingTool = () => {
 
   const handleSearch = async (query) => {
     try {
-      const response = await fetch(`https://api.example.com/track/${query}`);
+      const response = await fetch(`https://sendit-server-j68q.onrender.com//client/parcels/track/${query}`);
       const data = await response.json();
       setResults(data);
-      setShowPopCard(true); // Show PopCard with search results
+      setShowPopCard(true); //  PopCard with search results
     } catch (error) {
       console.error('Error fetching tracking results:', error);
-      setResults(null); // Handle error case, reset results if needed
-      setShowPopCard(true); // Show PopCard even if there's an error (optional)
+      setResults(null); 
+      setShowPopCard(true); 
     }
   };
 

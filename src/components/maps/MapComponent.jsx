@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MapCard from './MapCard';
 import SendFormCard from './SendFormCard';
-import './MapComponent.css'; // Import the CSS file
+import './MapComponent.css'; 
 
 const MapComponent = () => {
   const [directions, setDirections] = useState(null);

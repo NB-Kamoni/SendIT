@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './TrackingPopCard.css'; // Ensure you create this CSS file for styling
+import './TrackingPopCard.css';
+import TrackReportCard from './TrackReportCard';
 
 const TrackingPopCard = ({ results, onClose }) => {
   const [activeTab, setActiveTab] = useState('tab1');
@@ -8,10 +9,7 @@ const TrackingPopCard = ({ results, onClose }) => {
     switch (activeTab) {
       case 'tab1':
         return results ? (
-          <div className="card-content">
-            <h2>Parcels Status</h2>
-            <pre>{JSON.stringify(results, null, 2)}</pre>
-          </div>
+          <TrackReportCard results={results} onClose={onClose} />
         ) : (
           <div className="card-content">No Results</div>
         );
@@ -54,7 +52,7 @@ const TrackingPopCard = ({ results, onClose }) => {
         
         {/* Card Body */}
         <div className="card-body">
-          {/* This is where the content based on the active tab will be rendered */}
+         
           {renderContent()}
         </div>
       </div>

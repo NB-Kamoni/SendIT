@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { Button, Menu, Image, Icon } from 'semantic-ui-react';
-import Profile from '../profile/Profile'; // Ensure correct import path
-import NotificationsDrawer from '../notifications/NotificationsDrawer'; // Ensure correct import path
+import Profile from '../profile/Profile'; 
+import NotificationsDrawer from '../notifications/NotificationsDrawer';
 import './Navbar.css';
 
 const Navbar = () => {
