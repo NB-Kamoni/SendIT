@@ -21,18 +21,43 @@ function ClientSignupPage() {
       return;
     }
     try {
+      // Authenticate the user with Firebase and get the user UID
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
+      const firebaseUid = user.uid; // Get the Firebase UID
 
       setUserRole("client");
-      console.log("Client signed up:", user);
+
+      // Create the JSON object to send to the backend
+      const requestBody = {
+        email: email,
+        firebase_uid: firebaseUid, // Send Firebase UID instead of password
+        role: "client",
+        agree_to_terms: agreeToTerms,
+      };
+
+      // Send the data to the Flask API
+      const response = await fetch("https://sendit-server-j68q.onrender.com/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send data to the server");
+      }
+
+      console.log("Client signed up and data sent to server:", user);
+      // You can navigate the user to another page here if needed
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         setErrorMessage("Email already exists");
       } else if (error.code === "auth/weak-password") {
         setErrorMessage("Password is too weak");
       } else {
-        setErrorMessage("An error occurred during signup");
+        setErrorMessage(error.message || "An error occurred during signup");
       }
     }
   };

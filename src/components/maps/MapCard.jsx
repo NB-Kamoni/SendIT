@@ -12,7 +12,7 @@ const MapCard = ({ currentLocation, directions }) => {
         {currentLocation && (
           <LoadScript googleMapsApiKey={googleMapsApiKey}>
             <GoogleMap
-              mapContainerClassName="google-map" /* Use the class for styling */
+              mapContainerClassName="google-map"
               center={currentLocation}
               zoom={14}
             >
