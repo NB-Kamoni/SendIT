@@ -1,49 +1,59 @@
 .send-form-card {
-    width: 80%;
-    height: 100%;
-    border-radius: 0.28571429rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    background: #fff;
-    padding: 1em;
-    margin-bottom: 1em;
-    background-color: black;
-    color: white;
-    margin-left: 10%;
-  }
-  
-  .send-form-card-content {
-    padding: 1em;
-  }
-  
-  .form-group {
-    margin-bottom: 1em;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5em;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 0.28571429rem;
-    box-sizing: border-box;
-  }
-  
-  button {
-    display: inline-block;
-    background: black;
-    color: #fff;
-    padding: 0.78571429em 1.5em;
-    border-color: white;
-    border-radius: 0.28571429rem;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background: white;
-    color: black;
-  }
-  
+  width: 80%;
+  height: 100%;
+  border-radius: 0.28571429rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background: #000;
+  color: #fff;
+  padding: 1em;
+  margin-bottom: 1em;
+  margin-left: 10%;
+}
+
+.send-form-card-content {
+  padding: 1em;
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+/* Flexbox to position two input fields side by side */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group-half {
+  width: 48%; /* Adjust the width as needed */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5em;
+  border: 2px solid white;
+  border-radius: 0.28571429rem;
+  box-sizing: border-box;
+  color: white; 
+  background-color: #000;
+}
+
+button {
+  display: inline-block;
+  background: black;
+  color: #fff;
+  padding: 0.78571429em 1.5em;
+  border: 2px solid white;
+  border-radius: 0.28571429rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: white;
+  color: black;
+}

@@ -19,6 +19,7 @@
     font-family: 'Arial', sans-serif; /* Font family */
     font-size: 18px; /* Font size */
     padding: 16px; /* Padding */
+    text-align: left;
   }
   
   .home-sidebar .item:hover {
