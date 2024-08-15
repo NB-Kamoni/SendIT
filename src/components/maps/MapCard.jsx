@@ -1,7 +1,7 @@
 import React from 'react';
 import { LoadScript, GoogleMap, DirectionsRenderer } from '@react-google-maps/api';
 import { Card } from 'semantic-ui-react';
-import './MapCard.css'; // Import the CSS file
+import './MapCard.css';
 
 const MapCard = ({ currentLocation, directions }) => {
   const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import MapCard from './MapCard';
 import SendFormCard from './SendFormCard';
-import './MapComponent.css'; 
+import './MapComponent.css';
 
 const MapComponent = () => {
   const [directions, setDirections] = useState(null);
   const [currentLocation, setCurrentLocation] = useState(null);
+  const [distance, setDistance] = useState(0);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -30,10 +31,13 @@ const MapComponent = () => {
       },
       (result, status) => {
         if (status === window.google.maps.DirectionsStatus.OK) {
-          console.log('Directions result:', result);
           setDirections(result);
+          const route = result.routes[0];
+          const distanceInMeters = route.legs.reduce((acc, leg) => acc + leg.distance.value, 0);
+          const distanceInKm = distanceInMeters / 1000;
+          setDistance(distanceInKm.toFixed(2));
         } else {
-          console.error(`Error fetching directions ${result}`);
+          console.error(`Error fetching directions: ${result}`);
         }
       }
     );
@@ -43,7 +47,12 @@ const MapComponent = () => {
     <div className="map-component">
       <div className="grid-container">
         <div className="grid-item">
-          <SendFormCard onFormSubmit={handleFormSubmit} />
+          <SendFormCard 
+            onFormSubmit={handleFormSubmit} 
+            distance={distance} 
+            directions={directions} 
+            currentLocation={currentLocation} 
+          />
         </div>
         <div className="grid-item">
           <MapCard currentLocation={currentLocation} directions={directions} />

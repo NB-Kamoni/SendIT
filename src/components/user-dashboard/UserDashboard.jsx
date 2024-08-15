@@ -18,32 +18,15 @@ const UserDashboard = () => {
             case 'client':
                 {/* Add client-specific components here */}
                 return (
-                    <div className="content">
-                        {/* Add admin-specific components here */}
-{/* -----------------------TrackingTool-------------------------------------- */}
-                    <div className="grid-container-admin">  
-                        <div className="grid-item-admin">
-                            <TrackingTool />
-                        </div>
-                        <div className="grid-item-admin">
-                                                                          
-                        </div>
-                    </div>
-{/* // -----------------------TrackingTool-END------------------------------------- */}
-<MapComponent />
-
-
-                    </div>
-                    );
                     
-                               
+                           <MapComponent />
                        
-                
+                );
             case 'courier':
                 return (
                     <div className="content">
                         {/* Add courier-specific components here */}
-                        <MapComponent />
+                           <MapComponent />
                     </div>
                 );
             case 'admin':
