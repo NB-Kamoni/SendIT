@@ -1,0 +1,52 @@
+/* src/HorizontalCard.css */
+.horizontal-card {
+    background-color: black;
+    color: white;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 8px 0px 300px 30px;
+    padding: 70px;
+    display: flex;
+    align-items: center;
+    /* border: 2px solid white; */
+    position: relative;
+    /* top: 10px; */
+    flex-direction: row;
+}
+  
+.field {
+    padding: 15px;
+    font-size: 28px;
+    /* text-align: center; */
+    display: block;
+    /* justify-content: center;  */
+    height: 100px;
+    flex: 1; 
+}
+
+.field-text {
+    display: flex;
+    font-size: 20px;
+  }
+  
+.field-subtext {
+    display: block;
+    font-size: 26px; /* Smaller font size for subtext */
+    margin-top: 20px; /* Space between field text and subtext */
+}
+  
+.separator {
+    border-left: 2px solid white;
+    height: 100px;
+   
+}
+  
+  /* Ensure there's space around the separators */
+.field + .separator {
+    margin: 0 10px;
+}
+
+
+  

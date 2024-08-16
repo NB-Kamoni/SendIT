@@ -9,6 +9,7 @@ import TrackingTool from '../tracking/TrackingTool';
 import TypingEffect from '../TypingEffect';
 import SummaryMenu from './SummaryMenu';
 import MapComponent from '../maps/MapComponent';
+import DataCard from '../admin-dash/DataCard';
 
 const UserDashboard = () => {
     const { userRole } = useAuth();
@@ -38,13 +39,11 @@ const UserDashboard = () => {
                         <div className="grid-item-admin">
                             <TrackingTool />
                         </div>
-                        <div className="grid-item-admin">
-                                                                          
-                        </div>
+                           <div className="grid-item-admin"></div>
                     </div>
 {/* // -----------------------TrackingTool-END------------------------------------- */}
 
-
+                       <DataCard/> 
 
                     </div>
                     );
