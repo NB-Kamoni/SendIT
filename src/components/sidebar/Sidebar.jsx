@@ -38,19 +38,19 @@ const Sidebar = () => {
           <>
             <div className="menu-item">
               <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faHome} />
-              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Home</span>
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}> Home</span>
             </div>
             <div className="menu-item">
               <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faUser} />
-              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Dashboard</span>
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}> Dashboard</span>
             </div>
             <div className="menu-item">
               <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faBox} />
-              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>My Orders</span>
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}> My Orders</span>
             </div>
             <div className="menu-item">
               <FontAwesomeIcon className={`menu-icon ${isOpen ? '' : 'closed'}`} icon={faMoneyBill} />
-              <span className={`menu-text ${isOpen ? '' : 'closed'}`}>Billing</span>
+              <span className={`menu-text ${isOpen ? '' : 'closed'}`}> Billing</span>
             </div>
           </>
         );
