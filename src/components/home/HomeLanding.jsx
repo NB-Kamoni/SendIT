@@ -11,7 +11,7 @@ const HomeLanding = () => (
       muted
       className="homepage-heading video"
     >
-      <source src="/src/assets/AnimationHome.mp4" type="video/mp4" />
+      <source src="https://res.cloudinary.com/dan7dm7kx/video/upload/v1724591447/AnimationHome_lopxug.mp4" type="video/mp4" />
     </video>
 
     <div className="homepage-heading-overlay">

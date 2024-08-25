@@ -101,7 +101,7 @@ function ClientSignupPage() {
     <div className="signup-page">
       <div className="signup-card">
         <img
-          src="src/assets/Black-logo.png"
+          src="https://res.cloudinary.com/dan7dm7kx/image/upload/v1724591446/Black-logo_pb4qel.png"
           alt="Company Logo"
           className="signup-logo"
         />

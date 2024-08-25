@@ -12,7 +12,7 @@ const HomeSidebar = () => {
   const handleSidebarHide = () => setVisible(false);
   const handleToggle = () => setVisible(!visible);
 
-  const logoUrl = '/src/assets/Yellow-logo.png'; 
+  const logoUrl = '/https://res.cloudinary.com/dan7dm7kx/image/upload/v1724591447/Yellow-logo_lw53zv.png'; 
 
   return (
     <>
