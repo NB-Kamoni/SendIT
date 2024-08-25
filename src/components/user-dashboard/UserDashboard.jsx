@@ -25,21 +25,21 @@ const UserDashboard = () => {
                     </div>
                 );
                 case 'admin':
-                    return (
-                        <div className="content">
-                            {/* Add admin-specific components here */}
-    {/* -----------------------TrackingTool-------------------------------------- */}
-                        <div className="grid-container-admin">  
-                            <div className="grid-item-admin">
-                                <TrackingTool />
-                            </div>
-                               <div className="grid-item-admin"></div>
+                return (
+                    <div className="content">
+                        {/* Add admin-specific components here */}
+{/* -----------------------TrackingTool-------------------------------------- */}
+                    <div className="grid-container-admin">  
+                        <div className="grid-item-admin">
+                            <TrackingTool />
                         </div>
-    {/* // -----------------------TrackingTool-END------------------------------------- */}
-    
-                           <DataCard/> 
-    
-                        </div>
+                           <div className="grid-item-admin"></div>
+                    </div>
+{/* // -----------------------TrackingTool-END------------------------------------- */}
+
+                       <DataCard/> 
+
+                    </div>
                     );
 
             default:
