@@ -1,15 +1,9 @@
 import React from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import { useAuth } from '../../contexts/AuthContext';
-import WelcomeMessage from '../home/WelcomeMessage';
-import { Grid, Header, Segment } from 'semantic-ui-react';
-
 import './UserDashboard.css';
 import TrackingTool from '../tracking/TrackingTool';
-import TypingEffect from '../TypingEffect';
-import SummaryMenu from './SummaryMenu';
 import MapComponent from '../maps/MapComponent';
-import HomeCalculating from '../home/HomeCalculating';
 
 const UserDashboard = () => {
     const { userRole } = useAuth();
@@ -40,7 +34,7 @@ const UserDashboard = () => {
                             <TrackingTool />
                         </div>
                         <div className="grid-item-admin">
-                           {/* <HomeCalculating /> */}
+                          
                                                                           
                         </div>
                     </div>
