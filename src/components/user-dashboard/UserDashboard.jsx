@@ -24,25 +24,22 @@ const UserDashboard = () => {
                            <MapComponent />
                     </div>
                 );
-            case 'admin':
-                return (
-                    <div className="content">
-                        {/* Add admin-specific components here */}
-{/* -----------------------TrackingTool-------------------------------------- */}
-                    {/* <div className="grid-container-admin">  
-                        <div className="grid-item-admin">
-                            <TrackingTool />
+                case 'admin':
+                    return (
+                        <div className="content">
+                            {/* Add admin-specific components here */}
+    {/* -----------------------TrackingTool-------------------------------------- */}
+                        <div className="grid-container-admin">  
+                            <div className="grid-item-admin">
+                                <TrackingTool />
+                            </div>
+                               <div className="grid-item-admin"></div>
                         </div>
-                        <div className="grid-item-admin">
-                          
-                                                                          
+    {/* // -----------------------TrackingTool-END------------------------------------- */}
+    
+                           <DataCard/> 
+    
                         </div>
-                    </div> */}
-{/* // -----------------------TrackingTool-END------------------------------------- */}
-
-
-
-                    </div>
                     );
 
             default:
