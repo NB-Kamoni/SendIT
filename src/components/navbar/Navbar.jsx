@@ -47,7 +47,7 @@ const Navbar = () => {
     transition: 'background-color 3s',
   };
 
-  const logoUrl = '/src/assets/Black-logo.png';
+  const logoUrl = '/https://res.cloudinary.com/dan7dm7kx/image/upload/v1724591446/Black-logo_pb4qel.png';
 
   const renderMenuItems = () => {
     switch (userRole) {

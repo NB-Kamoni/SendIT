@@ -1,13 +1,8 @@
 import React from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import { useAuth } from '../../contexts/AuthContext';
-import WelcomeMessage from '../home/WelcomeMessage';
-import { Grid, Header, Segment } from 'semantic-ui-react';
-
 import './UserDashboard.css';
 import TrackingTool from '../tracking/TrackingTool';
-import TypingEffect from '../TypingEffect';
-import SummaryMenu from './SummaryMenu';
 import MapComponent from '../maps/MapComponent';
 import DataCard from '../admin-dash/DataCard';
 
@@ -30,7 +25,7 @@ const UserDashboard = () => {
                            <MapComponent />
                     </div>
                 );
-            case 'admin':
+                case 'admin':
                 return (
                     <div className="content">
                         {/* Add admin-specific components here */}

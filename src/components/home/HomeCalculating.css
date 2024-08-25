@@ -3,6 +3,7 @@
   color: #012169 !important;
   width: 70% !important;
   height: 500px;
+  height: 85% !important;
 
 }
 
@@ -18,7 +19,7 @@
 .cost-card .ui.primary.button {
   background-color: #012169 !important;
   color: white !important;
-  margin-bottom: 50px;
+  margin-bottom: 20px !important;
 }
 
 .cost-popup {

@@ -85,9 +85,13 @@
     width: 100%;
     cursor: pointer;
     position: relative;
-    justify-content: center; /* Center items */
+    justify-content: left; /* Center items */
     transition: all 0.3s;
     margin-top: 12px;
+  }
+
+  .menu-icon {
+    margin-right: 25px; /* Adjust the spacing as needed */
   }
   
   .menu-item:hover {

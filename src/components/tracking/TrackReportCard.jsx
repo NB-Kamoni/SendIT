@@ -64,7 +64,7 @@ const TrackReportCard = ({ results, currentUser }) => {
         </div>
       )}
       <div className="logo-container">
-        <img src="src/assets/Black-logo.png" alt="Logo" className="logo" /> {/* Replace with your logo path */}
+        <img src="https://res.cloudinary.com/dan7dm7kx/image/upload/v1724591446/Black-logo_pb4qel.png" alt="Logo" className="logo" /> {/* Replace with your logo path */}
       </div>
       <div className="tracking-container">
         {stages.map((stage, index) => {

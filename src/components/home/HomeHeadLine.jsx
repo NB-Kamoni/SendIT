@@ -38,7 +38,7 @@ const HomeHeadLine = () => {
       </div>
       
       <div className={`${styles.imageWrapper} ${inView ? styles.inView : ''}`}>
-        <img src="src/assets/yellow-container.png" alt="Transport" style={{ width: '100%', height: 'auto' }} />
+        <img src="https://res.cloudinary.com/dan7dm7kx/image/upload/v1724591448/yellow-container_rxvqjf.png" alt="Transport" style={{ width: '100%', height: 'auto' }} />
       </div>
       <div className={styles.verticalLine}></div>
       <div className={styles.horizontalLine}></div>
