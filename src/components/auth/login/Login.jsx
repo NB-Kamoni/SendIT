@@ -104,7 +104,7 @@ const Login = () => {
         <div className="login-page">
             <div className="login-card">
                 <div>
-                    <img src="/https://res.cloudinary.com/dan7dm7kx/image/upload/v1724591446/Black-logo_pb4qel.png" alt="Global Learn Logo" className="login-header-img" />
+                    <img src="https://res.cloudinary.com/dan7dm7kx/image/upload/v1724591446/Black-logo_pb4qel.png" alt="Global Learn Logo" className="login-header-img" />
                 </div>
                 <form onSubmit={onSubmit} className="login-form">
                     <div className="login-field">
