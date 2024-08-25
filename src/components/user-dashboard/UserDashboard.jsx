@@ -33,10 +33,7 @@ const UserDashboard = () => {
                         <div className="grid-item-admin">
                             <TrackingTool />
                         </div>
-                        <div className="grid-item-admin">
-                          
-                                                                          
-                        </div>
+                        
                     </div>
 {/* // -----------------------TrackingTool-END------------------------------------- */}
 
